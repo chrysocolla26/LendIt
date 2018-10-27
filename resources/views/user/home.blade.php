@@ -17,7 +17,23 @@
 					<img src="images/camera.png">
 				</div>
 				<div class="product-desc">
-					
+					rapih ga
+				</div>
+			</div>
+			<div id="product1" class="product">
+				<div class="product-img">
+					<img src="images/backpack.png">
+				</div>
+				<div class="product-desc">
+					rapih ga
+				</div>
+			</div>
+			<div id="product1" class="product">
+				<div class="product-img">
+					<img src="images/gameboy.png">
+				</div>
+				<div class="product-desc">
+					rapih ga
 				</div>
 			</div>
 {{-- 			<div id="product2" class="product"></div>
