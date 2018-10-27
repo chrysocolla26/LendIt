@@ -1,0 +1,88 @@
+body{
+	overflow-x: hidden;
+}
+
+.page{
+    width: 100vw;
+    height: 100vh;
+}
+
+a:visited, a:link:visited{
+	color: black;
+}
+
+.page-header{
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	overflow: hidden;
+	padding: 10px;
+	border-bottom: 1px dotted black;
+	border-width: 2px;
+	background-color: white;
+	z-index: 1000;
+}
+
+.page-header .logo{
+	float: left;
+	display: block;
+	height: 50px;
+}
+
+.logo img{
+	width: 50px;
+}
+
+.page-header .brand{
+	float: left;
+	display: block;
+	font-size: 40px;
+	border-right: 1px dotted black;
+	border-width: 2px;
+	padding-right: 17px;
+}
+
+.page-header .navbar a {
+    float: left;
+    display: block;
+    padding: 14px 16px;
+    margin-left: 5px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 15pt;
+    border-radius: 50px;
+}
+
+.page-header .navbar a:hover{
+	background-color: black;
+	color: white;
+}
+
+.page-content{
+	background-color: green;
+	margin-top: 74px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 100%;
+	width: 90%;
+}
+
+.page-content .container{
+	position: relative;
+	top: 20px;
+	margin: 0px 20px;
+}
+
+.highlighted-product{
+	text-align: center;
+}
+
+.highlighted-product .product{
+	height: 320px;
+	width: 180px;
+	background-color: white;
+	margin: 17px;
+	display: inline-block;
+}
