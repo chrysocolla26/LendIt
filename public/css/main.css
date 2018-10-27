@@ -65,8 +65,9 @@ a:visited, a:link:visited{
 	margin-top: 74px;
 	margin-left: auto;
 	margin-right: auto;
-	height: 100%;
+	min-height: 100%;
 	width: 90%;
+	padding-bottom: 20px;
 }
 
 .page-content .container{
@@ -75,14 +76,26 @@ a:visited, a:link:visited{
 	margin: 0px 20px;
 }
 
-.highlighted-product{
+.container .highlighted-product{
 	text-align: center;
 }
 
 .highlighted-product .product{
-	height: 320px;
-	width: 180px;
+	height: 290px;
+	width: 85%;
 	background-color: white;
 	margin: 17px;
 	display: inline-block;
+}
+
+.product .product-img{
+	text-align: left;
+	margin: 20px;
+}
+
+.product .product-img img{
+	width: 250px;
+	height: 250px;
+	padding-right: 20px;
+	border-right: 1px dotted black;
 }
