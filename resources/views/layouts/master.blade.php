@@ -5,18 +5,6 @@
 
     <link rel="icon" href="images/logo-lendit.png">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <style type="text/css">
-        .page-footer{
-            width: 100%;
-            position: absolute;
-            left: 0;
-        }
-
-        .footer-text{
-            text-align: center;
-            font-size: 20px;
-        }
-    </style>
     @yield('extcss')
 </head>
 <body>
