@@ -20,8 +20,10 @@
     			  <a href="#home">Home</a>
 				  <a href="#news">Products</a>
 				  <a href="#contact">Contact</a>
-    		</div>
-    	</div>
+				<a href="#login" style="float: right; margin-right: 20px">Login</a>
+				<a href="#register" style="float: right">Register</a>
+			</div>
+		</div>
         <div class="page-content">
         	@yield('content')
         </div>
