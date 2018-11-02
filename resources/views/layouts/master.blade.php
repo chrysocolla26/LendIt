@@ -18,7 +18,7 @@
     		</a>
     		<div class="navbar">
     			  <a href="#home">Home</a>
-				  <a href="#news">Products</a>
+				  <a href="#product">Products</a>
 				  <a href="#contact">Contact</a>
 				<a href="#login" style="float: right; margin-right: 20px">Login</a>
 				<a href="#register" style="float: right">Register</a>

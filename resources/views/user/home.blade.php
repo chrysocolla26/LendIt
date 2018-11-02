@@ -55,33 +55,57 @@
 			</div>
 			<div id="product2" class="product">
 				<div class="product-title">
-					Camera
+					Richie Muliawan
+					<span class="post-time">1w ago</span>
 				</div>
 				<div class="product-img">
-					<img src="images/camera.png">
+					<img src="images/sony-alpha-a7s.png">
 				</div>
 				<div class="product-desc">
-					Field 1 : <br>
-					Field 1 : <br>
-					Field 1 : <br>
-					Field 1 : <br>
-					Field 1 : <br>
-					Field 1 : <br>
+					<table>
+						<tr>
+							<td>Nama</td>
+							<td>:</td>
+							<td>Sony Alpha A7S (Body Only)</td>
+						</tr>
+						<tr>
+							<td>Stock</td>
+							<td>:</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>Deskripsi</td>
+							<td>:</td>
+							<td>Durasi pinjam maksimal 3 hari. Kondisi 98% bagus</td>
+						</tr>
+					</table>
 				</div>
 			</div><div id="product1" class="product">
 				<div class="product-title">
-					Backpack
+					Richie Muliawan
+					<span class="post-time">5d ago</span>
 				</div>
 				<div class="product-img">
-					<img src="images/backpack.png">
+					<img src="images/razer-backpack.jpg">
 				</div>
 				<div class="product-desc">
-					Field 1 : <br>
-					Field 1 : <br>
-					Field 1 : <br>
-					Field 1 : <br>
-					Field 1 : <br>
-					Field 1 : <br>
+					<table>
+						<tr>
+							<td>Nama</td>
+							<td>:</td>
+							<td>Razer Rogue 15.6" Backpack</td>
+						</tr>
+						<tr>
+							<td>Stock</td>
+							<td>:</td>
+							<td>2</td>
+						</tr>
+						<tr>
+							<td>Deskripsi</td>
+							<td>:</td>
+							<td>Durasi pinjam maksimal 3 hari. Bisa untuk laptop 15.6". Tear and Water Resistant Kondisi 95% bagus</td>
+						</tr>
+					</table>
 				</div>
 			</div>
 		</div>
