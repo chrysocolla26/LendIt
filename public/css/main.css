@@ -2,6 +2,7 @@ body{
 	overflow-x: hidden;
 	padding: 0;
 	margin: 0;
+	background-color: #E9EBEE;
 }
 
 .page{
@@ -43,6 +44,7 @@ a:visited, a:link:visited{
 	border-right: 1px dotted black;
 	border-width: 2px;
 	padding-right: 17px;
+	color: black;
 }
 
 .page-header .navbar a {
@@ -63,18 +65,17 @@ a:visited, a:link:visited{
 }
 
 .page-content{
-	background-color: #E9EBEE;
-	margin-top: 73px;
 	min-height: 100%;
-	width: 100%;
+	width: 1200px;
 	padding-bottom: 20px;
+	margin: 73px auto;
 }
 
 .page-content .container{
 	position: relative;
 	top: 20px;
 	display: grid;
-	grid-template-columns: 0.75fr 2fr 0.75fr 0.75fr;
+	grid-template-columns: 0.75fr 2fr 1.25fr;
 	padding: 0 1.5% 0 0;
 	margin: 1.6%;
 }
@@ -84,6 +85,7 @@ a:visited, a:link:visited{
 	margin: 20px;
 	min-height: 500px;
 	border: 1px solid #DDDFE2;
+	border-radius: 5px;
 }
 
 .container .side-nav{
@@ -97,6 +99,7 @@ a:visited, a:link:visited{
 	margin: 10px 5px;
 	max-width: 160px;
 	min-width: 150px;
+	border-radius: 5px;
 }
 
 .side-nav .left-username{
@@ -114,6 +117,10 @@ a:visited, a:link:visited{
 	height: 20px;
 }
 
+.side-nav .left-nav{
+	width: 100%;
+}
+
 .left-nav .link-menu{
 	padding: 5px;
 	background-color: white;
@@ -122,6 +129,7 @@ a:visited, a:link:visited{
     text-overflow: ellipsis;
     white-space: nowrap;
     border: 1px solid #DDDFE2;
+    border-radius: 5px;
 }
 
 .container .main-content{
@@ -130,7 +138,6 @@ a:visited, a:link:visited{
 }
 
 .main-content .product{
-	width: 95%;
 	background-color: white;
 	margin: 17px;
 	display: grid;
@@ -183,6 +190,65 @@ a:visited, a:link:visited{
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;
 }
+
+.container .side-news{
+	border:  2px dotted black;
+}
+
+.side-news .detail-news{
+	position: relative;
+	border-bottom: 1px dotted black;
+	border-width: 2px;
+}
+
+.side-news .detail-news:last-child{
+	border-bottom: none;
+}
+
+.detail-news img{
+	width: 100%;
+	/* max-height: 170px; */
+}
+
+.detail-news:hover img{
+	filter: blur(2px) grayscale(50%);
+}
+
+.detail-news:hover .overlay{
+	opacity: 0.5;
+}
+
+.detail-news:hover .overlay .news-desc{
+	visibility: visible;
+}
+
+.detail-news .overlay{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	background-color: black;
+}
+
+.overlay .news-desc{
+	visibility: hidden;
+	font-size: 30px;
+	color: white;
+	position: absolute;
+	/* Buat ngatur tengah, bisa dihapus */
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+
 
 .page-footer{
     width: 100%;

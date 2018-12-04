@@ -151,8 +151,33 @@
 				</div>
 			</div>
 		</div>
-		<div class="side-news">News</div>
-		<div class="side-chat">Chat</div>
+		<div class="side-news">
+			<div class="detail-news">
+				<img src="images/backpack.png">
+				<div class="overlay">
+					<div class="news-desc">This is a backpack.</div>
+				</div>
+			</div>
+			<div class="detail-news">
+				<img src="images/camera.png">
+				<div class="overlay">
+					<div class="news-desc">This is a camera.</div>
+				</div>
+			</div>
+			<div class="detail-news">
+				<img src="images/ladder.png">
+				<div class="overlay">
+					<div class="news-desc">This is a ladder.</div>
+				</div>
+			</div>
+			<div class="detail-news">
+				<img src="images/ladder.png">
+				<div class="overlay">
+					<div class="news-desc">This is a ladder.</div>
+				</div>
+			</div>
+		</div>
+		{{-- <div class="side-chat">Chat</div> --}}
 	</div>
 @endsection
 
