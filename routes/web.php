@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('user.home');
-});
+// Route::get('/', function () {
+//     return view('user.home');
+// });
+
+Route::get('/', 'PostController@home');
