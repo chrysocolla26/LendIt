@@ -28,9 +28,9 @@ class PostSeeder extends Seeder
             'post_time' => Carbon::create('2018', '06', '07'),
             'prouct_name' => 'Sony Alpha A7S (Body Only)',
             'product_stock' => 1,
-            'product_description' => 'Durasi pinjam minimal 1 minggu. Kondisi 98% bagus',
+            'product_description' => 'Disewakan hanya body, jika ingin meminjam lensa cek post selanjutnya. Durasi pinjam maksimal 1 minggu. Kondisi 98% bagus',
             'product_minimum' => 2,
-            'product_maximum' => 3
+            'product_maximum' => 7
         ]);
         \App\Post::insert([
             'user_id' => 1,
@@ -38,9 +38,9 @@ class PostSeeder extends Seeder
             'post_time' => Carbon::create('2018', '05', '22'),
             'product_name' => 'Nintendo Switch (Black)',
             'product_stock' => 1,
-            'product_description' => 'Durasi pinjam minimal 1 minggu. Kondisi 98% bagus',
-            'product_minimum' => 7,
-            'product_maximum' => 14
+            'product_description' => 'Nintendo Switch warna hitam. Lengkap dengan charger dan pad.Durasi pinjam maksimal 1 minggu. Kondisi 98% bagus',
+            'product_minimum' => 3,
+            'product_maximum' => 7
         ]);
         \App\Post::insert([
             'user_id' => 2,
