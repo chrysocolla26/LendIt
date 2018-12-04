@@ -27,13 +27,12 @@
 			@endphp
 			<div id="product{{$i}}" class="product">
 				<div class="product-title">
-					User Name
-					<span class="post-time">{{$i}}{{$posts->post_time}}</span>
+					<span class="post-time">{{$i}}{{$post->post_time}}</span>
 				</div>
 				<div class="product-img">
 					<table>
 						<tr>
-							<td><img src="images/{{$posts->link}}"></td>
+							<td><img src="images/{{$post->link}}"></td>
 						</tr>
 					</table>
 					
@@ -43,17 +42,17 @@
 						<tr>
 							<td>Nama</td>
 							<td>:</td>
-							<td>{{$posts->product_name}}</td>
+							<td>{{$post->product_name}}</td>
 						</tr>
 						<tr>
 							<td>Stock</td>
 							<td>:</td>
-							<td>{{$posts->product_stock}}</td>
+							<td>{{$post->product_stock}}</td>
 						</tr>
 						<tr>
 							<td>Deskripsi</td>
 							<td>:</td>
-							<td>{{$posts->product_description}}</td>
+							<td>{{$post->product_description}}</td>
 						</tr>
 					</table>
 				</div>

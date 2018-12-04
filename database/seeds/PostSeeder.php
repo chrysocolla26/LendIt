@@ -26,7 +26,7 @@ class PostSeeder extends Seeder
             'user_id' => 1,
             'link' => 'sony-alpha-a7s.png',
             'post_time' => Carbon::create('2018', '06', '07'),
-            'prouct_name' => 'Sony Alpha A7S (Body Only)',
+            'product_name' => 'Sony Alpha A7S (Body Only)',
             'product_stock' => 1,
             'product_description' => 'Disewakan hanya body, jika ingin meminjam lensa cek post selanjutnya. Durasi pinjam maksimal 1 minggu. Kondisi 98% bagus',
             'product_minimum' => 2,
@@ -34,7 +34,7 @@ class PostSeeder extends Seeder
         ]);
         \App\Post::insert([
             'user_id' => 1,
-            'link' => 'nintendo-switch.png',
+            'link' => 'nintendo-switch.jpg',
             'post_time' => Carbon::create('2018', '05', '22'),
             'product_name' => 'Nintendo Switch (Black)',
             'product_stock' => 1,
@@ -48,19 +48,7 @@ class PostSeeder extends Seeder
             'post_time' => Carbon::create('2018', '01', '07'),
             'product_name' => 'Gameboy Retro 129 games in 1',
             'product_stock' => 1,
-            'product_description' => '
-            Barang masih baru baru dipakai 1 minggu, minimal peminjaman 1 minggu
-            G.A.M.E.B.O.Y BLACK <br>
-            <ul>
-            <li>129 classic games in 1 (supermario, battle tank, bomberman, lode runner, donkeykong, pacman, etc)</li>
-            <li>Lithium battery just like handphone battery (2-3 charge) can last for up to 7 hours non stop playing</li>
-            <li>USB Charger</li>
-            <li>Volume adjust</li>
-            <li>TV output</li>
-            <li>English and Chinese language</li>
-            <li>User manual</li>
-            </ul>
-            <br>',
+            'product_description' => 'G.A.M.E.B.O.Y BLACK 129 classic games in 1 (supermario, battle tank, bomberman, lode runner, donkeykong, pacman, etc)',
             'product_minimum' => 7,
             'product_maximum' => 30
         ]);
@@ -80,9 +68,7 @@ class PostSeeder extends Seeder
             'post_time' => Carbon::create('2018', '03', '24'),
             'product_name' => 'Logitech Wireless Gaming Mouse - G602',
             'product_stock' => 1,
-            'product_description' => 'Mouse Gaming Wireless Logitech - G602, belum pernah dipakai. Dites masih berjalan. Kondisi 100% bagus beserta box nya. Minimal peminjaman 3 hari maksimal 7 hari <br>
-            -Mouse Accuracy 250 2.500 dpi <br>
-            -Software Support Windows 8, Windows 7 or Windows Vista',
+            'product_description' => 'Belum pernah dipakai. Dites masih berjalan. Kondisi 100% bagus beserta box nya. Minimal peminjaman 3 hari maksimal 7 hari  -Software Support Windows 8, Windows 7 or Windows Vista',
             'product_minimum' => 3,
             'product_maximum' => 7
         ]);
@@ -102,7 +88,7 @@ class PostSeeder extends Seeder
             'post_time' => Carbon::create('2018', '12', '01'),
             'product_name' => 'Maxim Superlite Tamagoyaki Egg Pan/Wajan Telor 7"',
             'product_stock' => 1,
-            'product_description' => 'Wajan multifungsi, membuat Tamagoyaki Egg dengan mudah. Kondisi 90% masih bagus. Baru dibeli bulan lalu tanggal 10 Juli 2018. Maksimal lama peminjaman 2 minggu. <br> Mohon barang kondisi sudah dicuci saat dikembalikan. <br> Thanks, have a nice day cooking ^^',
+            'product_description' => 'Membuat Tamagoyaki Egg dengan mudah. Kondisi 90% masih bagus. Maksimal pinjam 2 minggu. Mohon barang kondisi sudah dicuci saat dikembalikan. Thanks, have a nice day cooking ^^',
             'product_minimum' => 3,
             'product_maximum' => 14
         ]);
