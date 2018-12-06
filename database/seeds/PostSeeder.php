@@ -98,7 +98,7 @@ class PostSeeder extends Seeder
             'post_time' => Carbon::create('2018', '02', '03'),
             'product_name' => 'Head Ti. Radical Elite 265 gram tenis raket /Raket Tenis Head ti elite',
             'product_stock' => 1,
-            'product_description' => 'Raket tenis Head Ti. Radical Elite 265 gram. Baru dipakai 2 bulan. Kondisi masih bagus 95% tanpa cacad. String masih kuat. Maksimal peminjaman 1 minggu',
+            'product_description' => 'Raket tenis Head Ti. Radical Elite 265 gram. Baru dipakai 2 bulan. Kondisi masih bagus 95% tanpa cacat. String masih kuat. Maksimal peminjaman 1 minggu',
             'product_minimum' => 3,
             'product_maximum' => 7
         ]);

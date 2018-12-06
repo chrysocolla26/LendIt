@@ -17,11 +17,11 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->string('link');
+            $table->string('link',255);
             $table->date('post_time');
-            $table->string('product_name');
+            $table->string('product_name',255);
             $table->integer('product_stock');
-            $table->string('product_description');
+            $table->string('product_description',255);
             $table->integer('product_minimum');
             $table->integer('product_maximum');
             $table->timestamps();
