@@ -27,7 +27,7 @@
 			@endphp
 			<div id="product{{$i}}" class="product">
 				<div class="product-title">
-					{{$post->user_id}}
+					{{$post->user->name}}
 					<span class="post-time">{{$post->post_time}}</span>
 				</div>
 				<div class="product-img">

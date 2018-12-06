@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     public function home()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('post_time', 'DESC')->get();
         return view('user.home', compact('posts'));
     }
 }
