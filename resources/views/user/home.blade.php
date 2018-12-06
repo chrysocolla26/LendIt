@@ -36,23 +36,22 @@
 							<td><img src="images/{{$post->link}}"></td>
 						</tr>
 					</table>
-					
 				</div>
 				<div class="product-desc">
 					<table>
 						<tr>
-							<td>Nama</td>
-							<td>:</td>
+							<td style="vertical-align: top;">Nama</td>
+							<td style="vertical-align: top;">:</td>
 							<td>{{$post->product_name}}</td>
 						</tr>
 						<tr>
-							<td>Stock</td>
-							<td>:</td>
+							<td style="vertical-align: top;">Stock</td>
+							<td style="vertical-align: top;">:</td>
 							<td>{{$post->product_stock}}</td>
 						</tr>
 						<tr>
-							<td>Deskripsi</td>
-							<td>:</td>
+							<td style="vertical-align: top;">Deskripsi</td>
+							<td style="vertical-align: top;">:</td>
 							<td>{{$post->product_description}}</td>
 						</tr>
 					</table>

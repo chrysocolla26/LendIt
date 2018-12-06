@@ -21,5 +21,11 @@ class UserSeeder extends Seeder
                 'address' => $faker->address,
             ]);
         }
+        DB::table('users')->insert([
+            'name' => 'admin',
+            'email' => 'admin@admin.com',
+            'password' => 'admin',
+            'address' => 'admin',
+        ]);
     }
 }
