@@ -1,0 +1,263 @@
+body{
+	overflow-x: hidden;
+	padding: 0;
+	margin: 0;
+	background-color: #E9EBEE;
+}
+
+.page{
+    width: 100vw;
+    height: 100vh;
+}
+
+a:visited, a:link:visited{
+	color: black;
+}
+
+.page-header{
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	overflow: hidden;
+	padding: 10px;
+	border-bottom: 1px dotted black;
+	border-width: 2px;
+	background-color: white;
+	z-index: 1000;
+}
+
+.page-header .logo{
+	float: left;
+	display: block;
+	height: 50px;
+}
+
+.logo img{
+	width: 50px;
+}
+
+.page-header .brand{
+	float: left;
+	display: block;
+	font-size: 40px;
+	border-right: 1px dotted black;
+	border-width: 2px;
+	padding-right: 17px;
+	color: black;
+}
+
+.page-header .navbar a {
+    float: left;
+    display: block;
+    padding: 14px 16px;
+    margin-left: 5px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 15pt;
+    border-radius: 50px;
+}
+
+.page-header .navbar a:hover{
+	background-color: black;
+	color: white;
+}
+
+.page-content{
+	min-height: 100%;
+	width: 1200px;
+	padding-bottom: 20px;
+	margin: 73px auto;
+}
+
+.page-content .container{
+	position: relative;
+	top: 20px;
+	display: grid;
+	grid-template-columns: 0.75fr 2fr 1.25fr;
+	padding: 0 1.5% 0 0;
+	margin: 1.6%;
+}
+
+.container .side-nav, .main-content, .side-news, .side-chat{
+	background-color: white;
+	margin: 20px;
+	min-height: 500px;
+	border: 1px solid #DDDFE2;
+	border-radius: 5px;
+}
+
+.container .side-nav{
+	display: flex;
+	flex-direction: column;
+	max-width: 180px;
+	align-items: center;
+}
+
+.side-nav .left-username, .left-nav{
+	margin: 10px 5px;
+	max-width: 160px;
+	min-width: 150px;
+	border-radius: 5px;
+}
+
+.side-nav .left-username{
+	/*background-color: blue;*/
+	max-width: 150px;
+	padding: 5px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: 1px solid grey;
+}
+
+.side-nav .left-username img{
+	width: 20px;
+	height: 20px;
+}
+
+.side-nav .left-nav{
+	width: 100%;
+}
+
+.left-nav .link-menu{
+	padding: 5px;
+	background-color: white;
+	margin-top: 5px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: 1px solid #DDDFE2;
+    border-radius: 5px;
+}
+
+.container .main-content{
+	display: flex;
+	flex-direction: column;
+}
+
+.main-content .product{
+	background-color: white;
+	margin: 17px;
+	display: grid;
+	grid:
+	'ptitle ptitle ptitle ptitle ptitle'
+	'pimg pdesc pdesc pdesc pdesc';
+	background-color: #E9EBEE;
+}
+
+.product .product-title{
+	grid-area: ptitle;
+	margin: 10px;
+	font-size: 24px;
+}
+
+.product-title .post-time{
+	color: grey;
+	font-size: 14px;
+	float: right;
+}
+
+.product .product-img{
+	grid-area: pimg;
+	text-align: left;
+	margin: 20px 20px 20px 20px;
+	height: 125px;
+	width: 125px;
+	/*background-color: red;*/
+}
+
+.product-img table tr td{
+	
+	vertical-align: middle;
+}
+
+.product .product-img img{
+	width: 100%;
+}
+
+.product .product-desc{
+	grid-area: pdesc;
+	/*background-color: grey;*/
+	max-height: 125px;
+	width: 300px;
+	margin: 20px 20px 20px 0px;
+	padding: 10px 10px 30px 10px;
+	word-wrap: break-word;
+	border-left: 1px dotted black;
+	border-right: 1px solid black;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+.container .side-news{
+	border:  2px dotted black;
+}
+
+.side-news .detail-news{
+	position: relative;
+	border-bottom: 1px dotted black;
+	border-width: 2px;
+}
+
+.side-news .detail-news:last-child{
+	border-bottom: none;
+}
+
+.detail-news img{
+	width: 100%;
+	/* max-height: 170px; */
+}
+
+.detail-news:hover img{
+	filter: blur(2px) grayscale(50%);
+}
+
+.detail-news:hover .overlay{
+	opacity: 0.5;
+}
+
+.detail-news:hover .overlay .news-desc{
+	visibility: visible;
+}
+
+.detail-news .overlay{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	background-color: black;
+}
+
+.overlay .news-desc{
+	visibility: hidden;
+	font-size: 30px;
+	color: white;
+	position: absolute;
+	/* Buat ngatur tengah, bisa dihapus */
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+
+
+.page-footer{
+    width: 100%;
+    position: absolute;
+    background-color: black;
+    color: white;
+}
+
+.page-footer .footer-text{
+    text-align: center;
+    font-size: 20px;
+}
