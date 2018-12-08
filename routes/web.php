@@ -16,3 +16,4 @@
 // });
 
 Route::get('/', 'PostController@home');
+Route::get('/profile/{name}', 'PostController@profile');

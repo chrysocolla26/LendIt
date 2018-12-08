@@ -3,8 +3,8 @@
 <head>
     <title>LendIt - @yield('title')</title>
 
-    <link rel="icon" href="images/logo-lendit.png">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="icon" href="{{ URL::asset('images/logo-lendit.png') }}">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/main.css') }}">
     @yield('extcss')
 </head>
 <body>
@@ -12,7 +12,7 @@
     	<div class="page-header">
     		<a href="/">
 	    		<div class="logo">
-	    			<img src="images/logo-lendit.png">
+	    			<img src="{{ URL::asset('images/logo-lendit.png') }}">
 	    		</div>
 	    		<div class="brand">Lend It</div>
     		</a>
