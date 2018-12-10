@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
         for($i=0;$i<10;$i++) {
             DB::table('users')->insert([
                 'name' => $faker->name,
-                'email' => $faker->email,
+                'email' => $faker->freeEmail,
                 'password' => '123456',
                 'address' => $faker->address,
                 'role' => 'user',
@@ -24,7 +24,7 @@ class UserSeeder extends Seeder
         }
         DB::table('users')->insert([
             'name' => 'admin',
-            'email' => 'admin@admin.com',
+            'email' => 'admin@gmail.com',
             'password' => 'admin',
             'address' => 'admin',
             'role' => 'admin',
