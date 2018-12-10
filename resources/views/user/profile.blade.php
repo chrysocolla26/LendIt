@@ -20,7 +20,7 @@
 			</div>
 		</div>
 		<div class="main-content">
-
+			
 			@foreach($posts as $post)
 			@php
 				$i = 1;

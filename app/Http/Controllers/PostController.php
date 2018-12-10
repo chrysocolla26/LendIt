@@ -17,9 +17,9 @@ class PostController extends Controller
 
     public function profile($name){
         $posts = '';
-        $id = '';
-    	$id = User::where('name', 'LIKE', '%'.$name.'%')->get();
-    	$posts = Post::where('user_id', '=', $id[0]->id)->get();
-        return view('user.profile',compact('posts'));
+        $user = '';
+    	$user = User::where('name', 'LIKE', '%'.$name.'%')->first();
+        $posts = Post::where('user_id', '=', $user->id)->get();
+        return view('user.profile', compact('posts'));
     }
 }
