@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
                 'email' => $faker->email,
                 'password' => '123456',
                 'address' => $faker->address,
+                'role' => 'user',
             ]);
         }
         DB::table('users')->insert([
@@ -26,6 +27,7 @@ class UserSeeder extends Seeder
             'email' => 'admin@admin.com',
             'password' => 'admin',
             'address' => 'admin',
+            'role' => 'admin',
         ]);
     }
 }

@@ -24,6 +24,7 @@
 			@foreach($posts as $post)
 			@php
 				$i = 1;
+				$link = 'images/'.$post->link;
 			@endphp
 			<div id="product{{$i}}" class="product">
 				<div class="product-title">
@@ -33,7 +34,7 @@
 				<div class="product-img">
 					<table>
 						<tr>
-							<td><img src="images/{{$post->link}}"></td>
+							<td><img src="{{$link}}"></td>
 						</tr>
 					</table>
 				</div>

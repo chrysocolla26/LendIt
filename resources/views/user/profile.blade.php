@@ -33,7 +33,7 @@
 				<div class="product-img">
 					<table>
 						<tr>
-							<td><img src="{{URL::asset('images/')}}{{$post->link}}"></td>
+							<td><img src="../images/{{$post->link}}"></td>
 						</tr>
 					</table>
 				</div>
