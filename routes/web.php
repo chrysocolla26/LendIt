@@ -17,3 +17,6 @@
 
 Route::get('/', 'PostController@home');
 Route::get('/profile/{name}', 'PostController@profile');
+Route::get('/test', function () {
+    return view('staff.test');
+});
