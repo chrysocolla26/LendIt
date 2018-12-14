@@ -17,6 +17,10 @@
 
 Route::get('/', 'PostController@home');
 Route::get('/profile/{name}', 'PostController@profile');
+
+Route::get('/lend', 'TransactionController@lendIndex');
+Route::post('/lend-post', 'TransactionController@lendItem');
+
 Route::get('/test', function () {
     return view('staff.test');
 });
