@@ -10,6 +10,7 @@
 @section('content')
 	<div class="container">
 	<form class="form-signin">
+		{{csrf_field()}}
     	<div class="text-center mb-4">
 	    	<img class="mb-4" id="imageBackground" src="" alt="" width="144px" height="144px">
 	        <h1 class="h3 mb-3 font-weight-normal">Login</h1>
