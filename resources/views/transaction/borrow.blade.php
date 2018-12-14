@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Lend Item' )
+@section('title', 'Borrow Item' )
 
 @section('extcss')
 	<link rel="stylesheet" type="text/css" href="/css/floating-labels.css">
@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="container">
-	<form method="POST" action="/lend-post" enctype="multipart/form-data" class="form-signin">
+	<form method="POST" action="/borrow-post" enctype="multipart/form-data" class="form-signin">
 		{{csrf_field()}}
     	<div class="text-center mb-4">
 	    	<img class="mb-4" id="imageBackground" src="" alt="" width="144px" height="144px">
@@ -18,15 +18,23 @@
         	</p>
     	</div>
 
-	    <div class="form-label-group">
-				<input type="text" class="form-control" id="product-name" name="product_name" placeholder="Product Name">
-				<label for="product-name">Product Name</label>
-	    </div>
+		<div class="input-group mb-3">
+		  	<select class="custom-select" id="inputGroupSelect01">
+		    	<option selected>Product Name</option>
+		    	@foreach($posts as $post)
+					<option value="{{$post->id}}">{{ $post->product_name }}</option>
+		    	@endforeach
+		  	</select>
+		</div>
 
-	    <div class="form-label-group">
-				<input type="number" min="1" class="form-control" id="product-stock" name="product_stock" placeholder="Stock">
-				<label for="product-stock">Product Stock</label>
-	    </div>
+	    <div class="input-group mb-3">
+		  	<select class="custom-select" id="inputGroupSelect01">
+		    	<option selected>Quantity</option>
+		    
+				<option value="{{$post->id}}">{{ $post->product_stock }}</option>
+		    	
+		  	</select>
+		</div>
 
 	    <div class="form-label-group">
 			    <textarea class="form-control" rows="5" id="product-description" name="product_description" placeholder="Product Description"></textarea>
@@ -43,9 +51,7 @@
 				<label for="product-maximum">Maximum</label>
 	    </div>
 
-	    <div class="form-group">
-	    	<input type="file" class="form-control-file" name="product_image" id="product-image">
-	    </div>
+	    
 	    	
 	    <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
     </form>

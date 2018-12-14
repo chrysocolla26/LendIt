@@ -15,4 +15,13 @@ class TransactionController extends Controller
     public function lendItem(Request $request){
     	dd($request->product_description);
     }
+
+    public function borrowIndex(){
+        $posts = Post::all();
+    	return view('transaction.borrow', compact('posts'));
+    }
+
+    public function borrowItem(Request $request){
+    	dd($request->product_description);
+    }
 }

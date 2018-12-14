@@ -38,7 +38,7 @@
 	            		<a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
 	            		<div class="dropdown-menu" aria-labelledby="dropdown03">
 	            			<a class="dropdown-item" href="/lend">Lend</a>
-	              			<a class="dropdown-item" href="#">Borrow</a>
+	              			<a class="dropdown-item" href="/borrow">Borrow</a>
 	           		 	</div>
 	          		</li>
 	          		<li class="nav-item">
