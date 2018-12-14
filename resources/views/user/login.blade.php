@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'HOME')
+@section('title', 'Login')
 
 @section('extcss')
 <link rel="stylesheet" type="text/css" href="/css/floating-labels.css">
@@ -11,10 +11,10 @@
 	<div class="container">
 	<form class="form-signin">
     	<div class="text-center mb-4">
-	    	<img class="mb-4" src="/images/logo-lendit.png" alt="" width="144px" height="144px">
+	    	<img class="mb-4" id="imageBackground" src="" alt="" width="144px" height="144px">
 	        <h1 class="h3 mb-3 font-weight-normal">Login</h1>
 	        <p>Don't have account yet? Register
-        		<a href="https://caniuse.com/#feat=css-placeholder-shown">here</a>.
+        		<a href="/register">here</a>.
         	</p>
     	</div>
 

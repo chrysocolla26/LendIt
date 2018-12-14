@@ -15,7 +15,7 @@
 			<div class="logo">
     			<img src="{{ URL::asset('images/logo-lendit.png') }}" style="height: 50px;">
     		</div>
-      		<a class="navbar-brand" href="#">Lend It</a>
+      		<a class="navbar-brand" href="/">Lend It</a>
 	      	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
 	        	<span class="navbar-toggler-icon"></span>
 	      	</button>
