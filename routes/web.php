@@ -25,7 +25,8 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('user.register');
 });
-
+Route::get('/lend', 'TransactionController@lendIndex');
+Route::post('/lend-post', 'TransactionController@lendItem');
 Route::get('/test', function () {
     return view('staff.test');
 });
