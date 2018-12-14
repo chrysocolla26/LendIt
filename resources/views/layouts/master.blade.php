@@ -33,16 +33,11 @@
 		          	</li>
 	          		<li class="nav-item">
 	            		<a class="nav-link" href="#">Profile</a>
-	          		</li>
-	          		<li class="navi-tem">
-	            		<a class="nav-link disabled" href="#">Disabled</a>
-	          		</li>
-	          		<li class="nav-item">
-	            		<a class="nav-link" href="/lend">Sell</a>
-	          		</li>
+
 	          		<li class="nav-item dropdown">
 	            		<a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
 	            		<div class="dropdown-menu" aria-labelledby="dropdown03">
+	            			<a class="dropdown-item" href="/lend">Sell</a>
 	              			<a class="dropdown-item" href="#">Lend</a>
 	              			<a class="dropdown-item" href="#">Borrow</a>
 	           		 	</div>
