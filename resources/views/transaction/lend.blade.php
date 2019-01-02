@@ -37,25 +37,31 @@
 
 		.grid-container{
 			display: grid;
-			grid-template-columns: 40% auto;
+			grid-template-columns: 50% auto;
 			padding: 10px;
 		}
 
 		.upload-image{
 			margin-top: 40px;
 		}
+
+		.detail-input{
+			width: 50%;
+		}
 	</style>
 @endsection
 
 @section('content')
 <div class="grid-container">
-	<div class="grid-item">	
+	<div class="grid-item image-input">	
+		<form method="POST" action="/lend-post" enctype="multipart/form-data" class="form-signin">
+			{{csrf_field()}}
 		<div class="form-group upload-image">
 	        <h4>Upload Product Image</h4>
 	        <div class="input-group">
 	            <span class="input-group-btn">
 	                <span class="btn btn-default btn-file">
-	                    Browse… <input type="file" id="imgInp">
+	                    Browse… <input type="file" id="imgInp" name="product_image">
 	                </span>
 	            </span>
 	            <input type="text" class="form-control" readonly>
@@ -64,14 +70,12 @@
 	        <img id='img-upload'/>
 	    </div>
 	</div>
-	<div class="grid-item">	
-		<form method="POST" action="/lend-post" enctype="multipart/form-data" class="form-signin">
-			{{csrf_field()}}
+	<div class="grid-item detail-input">	
 	    	<div class="text-center mb-4">
 		    	<img class="mb-4" id="imageBackground" src="" alt="" width="144px" height="144px">
-		        <h1 class="h3 mb-3 font-weight-normal">Title</h1>
+		        <h1 class="h3 mb-3 font-weight-normal">Lend you item here</h1>
 		        <p>
-		        	Description.
+		        	Fill your item descriptions.
 	        	</p>
 	    	</div>
 

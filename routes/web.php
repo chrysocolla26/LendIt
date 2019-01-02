@@ -27,7 +27,7 @@ Route::get('/register', function () {
 });
 Route::get('/lend', 'TransactionController@lendIndex');
 Route::post('/lend-post', 'TransactionController@lendItem');
-Route::get('/borrow', 'TransactionController@borrowIndex');
+Route::get('/borrow/{product_name}/{id}', 'TransactionController@borrowIndex');
 Route::post('/borrow-post', 'TransactionController@borrowItem');
 Route::get('/test', function () {
     return view('staff.test');

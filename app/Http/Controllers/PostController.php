@@ -18,7 +18,7 @@ class PostController extends Controller
     public function profile($name){
         $posts = '';
         $user = '';
-    	$user = User::where('name', 'LIKE', '%'.$name.'%')->first();
+    	$user = User::where('name', 'LIKE', $name)->first();
         $posts = Post::orderBy('post_time', 'DESC')->where('user_id', '=', $user->id)->get();
         return view('user.profile', compact('posts'));
     }
