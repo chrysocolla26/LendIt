@@ -32,7 +32,11 @@
 		            	<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
 		          	</li>
 	          		<li class="nav-item">
-	            		<a class="nav-link" href="#">Profile</a>
+	          			@if(Session::has('isLogin'))
+	            			<a class="nav-link" href="/profile/{{Session('name')}}">Profile</a>
+	            		@else
+	            			<a class="nav-link" href="/login">Profile</a>
+	          			@endif
 	          		</li>
 	          		<li class="nav-item dropdown">
 	            		<a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
@@ -52,6 +56,27 @@
 		              		<a class="dropdown-item" href="#">Something else here</a>
 	            		</div>
 	          		</li>
+        		</ul>
+        		<ul class="nav navbar-nav navbar-right">
+        			@if(!Session::has('isLogin'))
+        			<li class="nav-item">
+	          			<a class="nav-link" href="/login">Login</a>
+	          		</li>
+	          		<li class="nav-item">
+	          			<a class="nav-link" href="/register">Register</a>
+	          		</li>
+	          		@else
+	          		<li>
+	          			@if(strlen(Session('name')) > 10)
+	          			<span class="navbar-brand mb-0">Hello, {{substr(Session('name'),0,strrpos(Session('name'), " "))}}</span>
+	          			@else
+	          			<span class="navbar-brand mb-0">Hello, {{Session('name')}}</span>
+	          			@endif
+	          		</li>
+	          		<li>
+	          			<a class="nav-link" href="/logout">Logout</a>
+	          		</li>
+	          		@endif
         		</ul>
 	      	</div>
 	    </nav>

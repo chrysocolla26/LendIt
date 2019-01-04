@@ -57,7 +57,11 @@
 	          			<p class="card-text mb-1">
 	          				{{ $post->product_description }}
 	          			</p>
-	              		<a href="/borrow/{{ $post->product_name }}/{{ $post->id }}">Continue reading</a>
+	              		@if($post->user_id == Session('id'))
+	              		<a href="/borrow/{{$post->product_name}}/{{$post->id}}">Edit your post</a>
+	              		@else
+	              		<a href="/borrow/{{$post->product_name}}/{{$post->id}}">Continue reading</a>
+	          			@endif
 	           	 	</div>
           		</div>
 					@php

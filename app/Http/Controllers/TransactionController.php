@@ -13,20 +13,24 @@ class TransactionController extends Controller
     }
 
     public function lendItem(Request $request){
-        $image = $request->product_image;
-        $image->move('images', $image->getClientOriginalname());
+        if(!Session('isLogin'))
+            return redirect('/login');
+        else{
+            $image = $request->product_image;
+            $image->move('images', $image->getClientOriginalname());
 
-        $newPost = new Post();
-        $newPost->user_id = 1;
-        $newPost->link = $image->getClientOriginalname();
-        $newPost->post_time = date("Y-m-d");
-        $newPost->product_name = $request->product_name;
-        $newPost->product_stock = $request->product_stock;
-        $newPost->product_description = $request->product_description;
-        $newPost->product_minimum = $request->product_minimum;
-        $newPost->product_maximum = $request->product_maximum;
-        $newPost->save();
-        return redirect('/');
+            $newPost = new Post();
+            $newPost->user_id = Session('id');
+            $newPost->link = $image->getClientOriginalname();
+            $newPost->post_time = date("Y-m-d");
+            $newPost->product_name = $request->product_name;
+            $newPost->product_stock = $request->product_stock;
+            $newPost->product_description = $request->product_description;
+            $newPost->product_minimum = $request->product_minimum;
+            $newPost->product_maximum = $request->product_maximum;
+            $newPost->save();
+            return redirect('/');
+        }
     }
 
     public function borrowIndex($product_name, $id){
@@ -36,6 +40,6 @@ class TransactionController extends Controller
     }
 
     public function borrowItem(Request $request){
-        
+
     }
 }

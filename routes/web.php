@@ -21,10 +21,14 @@ Route::get('/profile/{name}', 'PostController@profile');
 Route::get('/login', function () {
     return view('user.login');
 });
+Route::post('/login-post', 'UserController@login');
+Route::get('/logout', 'UserController@logout');
 
 Route::get('/register', function () {
     return view('user.register');
 });
+Route::post('/register-post', 'UserController@register');
+
 Route::get('/lend', 'TransactionController@lendIndex');
 Route::post('/lend-post', 'TransactionController@lendItem');
 Route::get('/borrow/{product_name}/{id}', 'TransactionController@borrowIndex');
