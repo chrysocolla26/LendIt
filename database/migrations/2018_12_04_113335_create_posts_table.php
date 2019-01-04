@@ -24,6 +24,7 @@ class CreatePostsTable extends Migration
             $table->string('product_description',255);
             $table->integer('product_minimum');
             $table->integer('product_maximum');
+            $table->integer('price');
             $table->timestamps();
         });
     }

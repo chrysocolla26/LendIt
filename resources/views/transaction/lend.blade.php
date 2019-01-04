@@ -48,6 +48,12 @@
 		.detail-input{
 			width: 50%;
 		}
+
+		.btn-lend{
+			width: 50%; 
+			background-color: #343a40; 
+			font-size: 18px;
+		}
 	</style>
 @endsection
 
@@ -104,7 +110,7 @@
 					<label for="product-maximum">Maximum</label>
 		    </div>
 		    <div class="form-label-group" align="center">
-		    		<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+		    		<button class="btn btn-lg btn-primary btn-block btn-lend" type="submit">Lend Item</button>
 		    </div>
 	    </div>
 	    	

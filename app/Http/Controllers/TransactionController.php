@@ -36,6 +36,6 @@ class TransactionController extends Controller
     }
 
     public function borrowItem(Request $request){
-    	dd($request->product_description);
+        
     }
 }
