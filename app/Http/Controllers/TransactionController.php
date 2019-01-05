@@ -23,7 +23,7 @@ class TransactionController extends Controller
             $image->move('images', $image->getClientOriginalname());
 
             $newPost = new Post();
-            $newPost->user_id = Session('id');
+            $newPost->user_id = Session("id");
             $newPost->link = $image->getClientOriginalname();
             $newPost->post_time = date("Y-m-d");
             $newPost->product_name = $request->product_name;
@@ -59,7 +59,7 @@ class TransactionController extends Controller
         $image->move('images', $image->getClientOriginalname());
 
         $post = Session("post");
-        $post->user_id = Session('id');
+        $post->user_id = Session("id");
         $post->link = $image->getClientOriginalname();
         $post->post_time = date("Y-m-d");
         $post->product_name = $request->product_name;
