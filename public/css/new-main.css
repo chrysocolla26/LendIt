@@ -1,0 +1,41 @@
+.news:hover img{
+	filter: blur(2px) grayscale(50%);
+}
+
+.news:hover .overlay{
+	opacity: 0.5;
+}
+
+.news:hover .overlay .card-desc{
+	visibility: visible;
+}
+
+.news .overlay{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	background-color: black;
+}
+
+.overlay .card-desc{
+	visibility: hidden;
+	font-size: 30px;
+	color: white;
+	position: absolute;
+	/* Buat ngatur tengah, bisa dihapus */
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+.footer{
+    text-align: center;
+}

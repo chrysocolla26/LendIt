@@ -20,7 +20,8 @@ class PostSeeder extends Seeder
             'product_stock' => 2,
             'product_description' => 'Durasi pinjam maksimal 3 hari. Bisa untuk laptop 15.6". Tear and Water Resistant Kondisi 95% bagus',
             'product_minimum' => 2,
-            'product_maximum' => 3
+            'product_maximum' => 3,
+            'price' => 40000
         ]);
         \App\Post::insert([
             'user_id' => 1,
@@ -30,7 +31,8 @@ class PostSeeder extends Seeder
             'product_stock' => 1,
             'product_description' => 'Disewakan hanya body, jika ingin meminjam lensa cek post selanjutnya. Durasi pinjam maksimal 1 minggu. Kondisi 98% bagus',
             'product_minimum' => 2,
-            'product_maximum' => 7
+            'product_maximum' => 7,
+            'price' => 100000
         ]);
         \App\Post::insert([
             'user_id' => 1,
@@ -40,7 +42,8 @@ class PostSeeder extends Seeder
             'product_stock' => 1,
             'product_description' => 'Nintendo Switch warna hitam. Lengkap dengan charger dan pad.Durasi pinjam maksimal 1 minggu. Kondisi 98% bagus',
             'product_minimum' => 3,
-            'product_maximum' => 7
+            'product_maximum' => 7,
+            'price' => 40000
         ]);
         \App\Post::insert([
             'user_id' => 2,
@@ -50,7 +53,8 @@ class PostSeeder extends Seeder
             'product_stock' => 1,
             'product_description' => 'G.A.M.E.B.O.Y BLACK 129 classic games in 1 (supermario, battle tank, bomberman, lode runner, donkeykong, pacman, etc)',
             'product_minimum' => 7,
-            'product_maximum' => 30
+            'product_maximum' => 30,
+            'price' => 5000
         ]);
         \App\Post::insert([
             'user_id' => 2,
@@ -60,7 +64,8 @@ class PostSeeder extends Seeder
             'product_stock' => 1,
             'product_description' => 'Headset Audio Technica ATH-M50X Red. Baru dipakai 2 minggu, kondisi 98% masih bagus. Minimal peminjaman 3 hari',
             'product_minimum' => 3,
-            'product_maximum' => 7
+            'product_maximum' => 7,
+            'price' => 100000
         ]);
         \App\Post::insert([
             'user_id' => 2,
@@ -70,7 +75,8 @@ class PostSeeder extends Seeder
             'product_stock' => 1,
             'product_description' => 'Belum pernah dipakai. Dites masih berjalan. Kondisi 100% bagus beserta box nya. Minimal peminjaman 3 hari maksimal 7 hari  -Software Support Windows 8, Windows 7 or Windows Vista',
             'product_minimum' => 3,
-            'product_maximum' => 7
+            'product_maximum' => 7,
+            'price' => 80000
         ]);
         \App\Post::insert([
             'user_id' => 3,
@@ -80,7 +86,8 @@ class PostSeeder extends Seeder
             'product_stock' => 1,
             'product_description' => 'Kodisi 98% bagus. Size 5, bahan kulit lembut. FREE pentil',
             'product_minimum' => 3,
-            'product_maximum' => 7
+            'product_maximum' => 7,
+            'price' => 30000
         ]);
         \App\Post::insert([
             'user_id' => 3,
@@ -90,7 +97,8 @@ class PostSeeder extends Seeder
             'product_stock' => 1,
             'product_description' => 'Membuat Tamagoyaki Egg dengan mudah. Kondisi 90% masih bagus. Maksimal pinjam 2 minggu. Mohon barang kondisi sudah dicuci saat dikembalikan. Thanks, have a nice day cooking ^^',
             'product_minimum' => 3,
-            'product_maximum' => 14
+            'product_maximum' => 14,
+            'price' => 20000
         ]);
         \App\Post::insert([
             'user_id' => 3,
@@ -98,9 +106,10 @@ class PostSeeder extends Seeder
             'post_time' => Carbon::create('2018', '02', '03'),
             'product_name' => 'Head Ti. Radical Elite 265 gram tenis raket /Raket Tenis Head ti elite',
             'product_stock' => 1,
-            'product_description' => 'Raket tenis Head Ti. Radical Elite 265 gram. Baru dipakai 2 bulan. Kondisi masih bagus 95% tanpa cacad. String masih kuat. Maksimal peminjaman 1 minggu',
+            'product_description' => 'Raket tenis Head Ti. Radical Elite 265 gram. Baru dipakai 2 bulan. Kondisi masih bagus 95% tanpa cacat. String masih kuat. Maksimal peminjaman 1 minggu',
             'product_minimum' => 3,
-            'product_maximum' => 7
+            'product_maximum' => 7,
+            'price' => 25000
         ]);
     }
 }
