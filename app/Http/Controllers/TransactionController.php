@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use App\Post;
 use App\User;
 
@@ -28,6 +31,7 @@ class TransactionController extends Controller
             $newPost->product_description = $request->product_description;
             $newPost->product_minimum = $request->product_minimum;
             $newPost->product_maximum = $request->product_maximum;
+            $newPost->price = $request->price;
             $newPost->save();
             return redirect('/');
         }
@@ -41,5 +45,37 @@ class TransactionController extends Controller
 
     public function borrowItem(Request $request){
 
+    }
+
+    public function editIndex($product_name, $id){
+        $post = '';
+        $post = Post::where('product_name', 'LIKE', $product_name)->where('id', 'LIKE', $id)->first();
+        Session::put("post", $post);
+        return view('transaction.edit', compact('post'));
+    }
+
+    public function editItem(Request $request){
+        $image = $request->product_image;
+        $image->move('images', $image->getClientOriginalname());
+
+        $post = Session("post");
+        $post->user_id = Session('id');
+        $post->link = $image->getClientOriginalname();
+        $post->post_time = date("Y-m-d");
+        $post->product_name = $request->product_name;
+        $post->product_stock = $request->product_stock;
+        $post->product_description = $request->product_description;
+        $post->product_minimum = $request->product_minimum;
+        $post->product_maximum = $request->product_maximum;
+        $post->price = $request->price;
+        $post->save();
+        return redirect('/');
+    }
+
+    public function deleteItem(){
+        $post = Session("post");
+        $post->delete();
+        Session::forget("post");
+        return redirect('/');
     }
 }

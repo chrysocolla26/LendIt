@@ -58,7 +58,7 @@
 	          				{{ $post->product_description }}
 	          			</p>
 	              		@if($post->user_id == Session('id'))
-	              		<a href="/borrow/{{$post->product_name}}/{{$post->id}}">Edit your post</a>
+	              		<a href="/edit/{{$post->product_name}}/{{$post->id}}">Edit your post</a>
 	              		@else
 	              		<a href="/borrow/{{$post->product_name}}/{{$post->id}}">Continue reading</a>
 	          			@endif

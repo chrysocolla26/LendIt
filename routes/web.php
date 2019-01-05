@@ -31,8 +31,15 @@ Route::post('/register-post', 'UserController@register');
 
 Route::get('/lend', 'TransactionController@lendIndex');
 Route::post('/lend-post', 'TransactionController@lendItem');
+
 Route::get('/borrow/{product_name}/{id}', 'TransactionController@borrowIndex');
 Route::post('/borrow-post', 'TransactionController@borrowItem');
+
+Route::get('/edit/{product_name}/{id}', 'TransactionController@editIndex');
+Route::post('/edit-post', 'TransactionController@editItem');
+
+Route::get('/delete-post', 'TransactionController@deleteItem');
+
 Route::get('/test', function () {
     return view('staff.test');
 });
