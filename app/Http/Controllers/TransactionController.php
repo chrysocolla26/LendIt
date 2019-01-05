@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Post;
 use App\User;
+use App\Borrow;
 
 class TransactionController extends Controller
 {
@@ -40,11 +41,34 @@ class TransactionController extends Controller
     public function borrowIndex($product_name, $id){
         $post = '';
         $post = Post::where('product_name', 'LIKE', $product_name)->where('id', 'LIKE', $id)->first();
+        Session::put("post", $post);
     	return view('transaction.borrow', compact('post'));
     }
 
     public function borrowItem(Request $request){
+        if(!Session("isLogin")){
+            return redirect('/login');
+        }else{
+            $post = Session("post");
+            $borrow = new Borrow();
+            $borrow->lender_id = $post->user_id;
+            $borrow->borrower_id = Session("id");
+            $borrow->product_id = $post->id;
+            $borrow->link = $post->link;
+            $borrow->product_name = $post->product_name;
+            $borrow->product_description = $post->product_description;
+            $borrow->borrow_qty = $request->borrow_qty;
+            $borrow->borrow_days = $request->borrow_days;
+            $borrow->start_date = date("Y-m-d");
+            $borrow->end_date = date("Y-m-d", strtotime($borrow->start_date. ' + '.$borrow->borrow_days.' days'));
+            $borrow->total_price = $post->price * $request->borrow_qty * $request->borrow_days;
+            $borrow->status = "Requested";
+            $borrow->save();
 
+            $post->product_stock = $post->product_stock - $request->borrow_qty;
+            $post->save();
+            return redirect('/');
+        }
     }
 
     public function editIndex($product_name, $id){

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 
-@section('title', 'asdasdsa' )
+@section('title', 'Profile' )
 
 @section('extcss')
 
@@ -22,6 +22,7 @@
 			<div class="col">
 				<h2>RECENT</h2>
           		@foreach($posts as $post)
+          		@if($post->product_stock > 0)
 					@php
 						$i = 1;
 						$link = '/images/'.$post->link;
@@ -40,7 +41,7 @@
 	          				{{ $post->product_description }}
 	          			</p>
 	          			@if($post->user_id == Session('id'))
-	              		<a href="/borrow/{{$post->product_name}}/{{$post->id}}">Edit your post</a>
+	              		<a href="/edit/{{$post->product_name}}/{{$post->id}}">Edit your post</a>
 	              		@else
 	              		<a href="/borrow/{{$post->product_name}}/{{$post->id}}">Continue reading</a>
 	          			@endif
@@ -49,6 +50,7 @@
 					@php
 						$i++;
 					@endphp
+					@endif
 				@endforeach
 			</div>
 			<div class="col-md-2">

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'HOME')
+@section('title', 'BORROW HISTORY')
 
 @section('extcss')
 
@@ -18,7 +18,7 @@
 				</div>
 			</div>
 			<div class="col">
-				<h2>RECENT</h2>
+				<h2>BORROW HISTORY</h2>
 <!-- 				<div class="card flex-md-row mb-4 shadow-sm h-md-250 content">
             		<img src="{{ URL::asset('images/backpack.png') }}" class="card-img-left flex-auto d-none d-lg-block col-md-4" data-holder-rendered="true" style="width: 100%; height: 100%; object-fit: contain; margin: auto 0;">
 	           		<div class="card-body d-flex flex-column align-items-start col">
@@ -40,7 +40,6 @@
 
 
           		@foreach($posts as $post)
-          		@if($post->product_stock > 0)
 					@php
 						$i = 1;
 						$link = '/images/'.$post->link;
@@ -68,7 +67,6 @@
 					@php
 						$i++;
 					@endphp
-					@endif
 				@endforeach
 			</div>
 			<div class="col-md-2">

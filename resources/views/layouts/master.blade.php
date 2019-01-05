@@ -45,17 +45,25 @@
               			<!-- <a class="dropdown-item" href="/borrow">Borrow</a> -->
 	           		 	</div>
 	          		</li>
+	          		<li class="nav-item dropdown">
+	            		<a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">History</a>
+	            		<div class="dropdown-menu" aria-labelledby="dropdown03">
+	            			<a class="dropdown-item" href="/lend-history">Lend History</a>
+	            			<a class="dropdown-item" href="/borrow-history">Borrow History</a>
+              			<!-- <a class="dropdown-item" href="/borrow">Borrow</a> -->
+	           		 	</div>
+	          		</li>
 	          		<li class="nav-item">
 	            		<a class="nav-link" href="#">About Us</a>
 	          		</li>
-		          	<li class="nav-item dropdown">
+		          	<!-- <li class="nav-item dropdown">
 		            	<a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
 		            	<div class="dropdown-menu" aria-labelledby="dropdown03">
 		              		<a class="dropdown-item" href="#">Action</a>
 		              		<a class="dropdown-item" href="#">Another action</a>
 		              		<a class="dropdown-item" href="#">Something else here</a>
 	            		</div>
-	          		</li>
+	          		</li> -->
         		</ul>
         		<ul class="nav navbar-nav navbar-right">
         			@if(!Session::has('isLogin'))

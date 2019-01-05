@@ -40,6 +40,10 @@ Route::post('/edit-post', 'TransactionController@editItem');
 
 Route::get('/delete-post', 'TransactionController@deleteItem');
 
+Route::get('/lend-history', 'HistoryController@lendHistory');
+
+Route::get('/borrow-history', 'HistoryController@borrowHistory');
+
 Route::get('/test', function () {
     return view('staff.test');
 });
