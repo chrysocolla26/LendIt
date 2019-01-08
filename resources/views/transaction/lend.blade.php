@@ -1,64 +1,14 @@
-@extends('layouts.master')
+@extends('layouts.nav')
 
 @section('title', 'Lend Item' )
 
 @section('extcss')
 	<link rel="stylesheet" type="text/css" href="/css/floating-labels.css">
-	<style type="text/css">
-		.btn-file {
-		    position: relative;
-		    overflow: hidden;
-		}
-		.btn-file input[type=file] {
-		    position: absolute;
-		    top: 0;
-		    right: 0;
-		    min-width: 100%;
-		    min-height: 100%;
-		    font-size: 100px;
-		    text-align: right;
-		    filter: alpha(opacity=0);
-		    opacity: 0;
-		    outline: none;
-		    background: white;
-		    cursor: inherit;
-		    display: block;
-		}
-
-		button[type=submit] {
-			width: 200px;
-			align-self: center;
-		}
-
-		#img-upload{
-		    width: 100%;
-		    height: auto;
-		}
-
-		.grid-container{
-			display: grid;
-			grid-template-columns: 50% auto;
-			padding: 10px;
-		}
-
-		.upload-image{
-			margin-top: 40px;
-		}
-
-		.detail-input{
-			width: 50%;
-		}
-
-		.btn-lend{
-			width: 50%; 
-			background-color: #343a40; 
-			font-size: 18px;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="/css/form.css">
 @endsection
 
 @section('content')
-<div class="grid-container">
+<div class="grid-container container">
 	<div class="grid-item image-input">	
 		<form method="POST" action="/lend-post" enctype="multipart/form-data" class="form-signin">
 			{{csrf_field()}}

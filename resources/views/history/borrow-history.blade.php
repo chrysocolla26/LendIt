@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.nav')
 
 @section('title', 'BORROW HISTORY')
 
@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="album py-5 bg-light">
-	<div class="container-fluid">
+	<div class="container">
 		<div class="row">
 {{-- SIDE --}}
 			<div class="col-md-2">
@@ -39,16 +39,13 @@
 
 
 
-          		@foreach($posts as $post)
-					@php
-						$i = 1;
-						$link = '/images/'.$post->link;
-					@endphp
+          		@foreach($borrows as $i=>$post)
 				<div class="card flex-md-row mb-4 shadow-sm h-md-250 content" id="product{{ $i }}">
-            		<img src="{{ $link }}" class="card-img-left flex-auto d-none d-lg-block col-md-4" data-holder-rendered="true" style="width: 100%; height: 100%; object-fit: contain; margin: auto 0;">
+            		<img src="/images/products/{{ $post->link }}" class="card-img-left flex-auto d-none d-lg-block col-md-4" data-holder-rendered="true" style="width: 100%; height: 100%; object-fit: contain; margin: auto 0;">
 	           		<div class="card-body d-flex flex-column align-items-start col">
 	              		<strong class="d-inline-block mb-2 text-primary">
 	              			<a href="/profile/{{ $post->user->name }}" title="">{{$post->user->name}}</a>
+	              			<a href="/profile/{{ $post->user->name }}" title="">{{$post->post->user->name}}</a>
 	              		</strong>
 	              			<h3 class="mb-0">
 	                			<a class="text-dark" href="/borrow/{{ $post->product_name }}/{{ $post->id }}">{{ $post->product_name }}</a>

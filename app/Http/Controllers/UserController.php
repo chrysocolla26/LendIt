@@ -42,6 +42,7 @@ class UserController extends Controller
     }
     public function logout(){
         Session::flush();
+        
         return redirect('');
     }    
 }

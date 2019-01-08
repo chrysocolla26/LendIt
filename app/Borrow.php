@@ -11,6 +11,6 @@ class Borrow extends Model
  	}
 
 	public function post(){
-    	return $this->belongsTo(Post::class, 'lender_id');
+    	return $this->belongsTo(Post::class, 'product_id');
  	}
 }

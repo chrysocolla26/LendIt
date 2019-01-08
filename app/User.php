@@ -30,9 +30,20 @@ use Illuminate\Notifications\Notifiable;
 // }
 
 class User extends Model{
-    public function borrow(){
-        return $this->hasMany(Borrow::class);
-    }
+    // public function borrow(){
+    //     return $this->hasMany(Borrow::class);
+    // }
 
+    // public function post(){
+    // 	return $this->hasMany(Post::class);
+    // }
+
+	public function post(){
+		return $this->hasMany(Borrow::class);
+	}
+
+	public function borrow(){
+		return $this->hasMany(Post::class);
+	}
     
 }

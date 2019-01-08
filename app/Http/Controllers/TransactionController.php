@@ -39,7 +39,6 @@ class TransactionController extends Controller
     }
 
     public function borrowIndex($product_name, $id){
-        $post = '';
         $post = Post::where('product_name', 'LIKE', $product_name)->where('id', 'LIKE', $id)->first();
         Session::put("post", $post);
     	return view('transaction.borrow', compact('post'));

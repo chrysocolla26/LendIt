@@ -1,52 +1,17 @@
-@extends('layouts.master')
+@extends('layouts.nav')
 
 @section('title', 'Borrow Item' )
 
 @section('extcss')
 	<link rel="stylesheet" type="text/css" href="/css/floating-labels.css">
-	<style type="text/css">
-		.grid-container{
-			display: grid;
-			grid-template-columns: 40% auto;
-			/*margin: 10px;*/
-		}
-		.item1{
-			/*background-color: yellow;*/
-			padding: 50px 50px 50px 50px;
-		}
-		.item1 img{
-			border: 1px solid black;
-			width: 480px;
-			height: auto;
-		}
-		.item2{
-			/*background-color: green;*/
-			width: 500px;
-			padding: 50px 20px;
-		}
-		.product-title b{
-			font-size: 30px;
-		}
-		.product-detail label{
-			color: gray;
-			margin: 0;
-			padding: 0;
-		}
-		.btn-borrow{
-			width: 50%; 
-			background-color: #343a40; 
-			font-size: 18px;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="/css/template.css">
 @endsection
 
 @section('content')
-@php
-	$link = '/images/'.$post->link;
-@endphp
-	<div class="grid-container">
+<div class="album py-5 bg-light">
+	<div class="grid-container container card">
 		<div class="item1">
-			<img src="{{$link}}">
+			<img src="/images/products/{{$post->link}}">
 		</div>
 		<div class="item2">
 			<div class="product-title">
@@ -98,6 +63,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 @endsection
 
 @section('extscript')
