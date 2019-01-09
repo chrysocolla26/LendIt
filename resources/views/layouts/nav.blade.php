@@ -10,8 +10,8 @@
       	</button>
 
 	    <div class="collapse navbar-collapse" id="navbarlendit">
-	        <form class="form-inline my-2 my-md-0">
-	          <input class="form-control" type="text" placeholder="Search">
+	        <form class="form-inline my-2 my-md-0" method="GET" action="/search">
+	          <input class="form-control" type="text" placeholder="Search" name="txtSearch">
 	        </form>
 
 	        <ul class="navbar-nav mr-auto">

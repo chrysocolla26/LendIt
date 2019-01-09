@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
 use App\Post;
 use App\User;
 use App\Borrow;
@@ -17,11 +19,26 @@ class TransactionController extends Controller
     }
 
     public function lendItem(Request $request){
+        $validate = Validator::make(
+        $request->all(), 
+        ['product_name' => 'required',
+        'product_stock' => 'required|numeric|min:1',
+        'product_description' => 'required|max:255',
+        'product_minimum' => 'required|numeric|min:1',
+        'product_maximum' => 'required|numeric',
+        'price' => 'required',
+        'product_image' => 'required|mimes:jpeg,png,jpg|file',
+        ]);
+
+        if($validate->fails()){
+            return redirect()->back()->withInput(Input::all())->withErrors($validate);
+        }
+
         if(!Session('isLogin'))
             return redirect('/login');
         else{
             $image = $request->product_image;
-            $image->move('images', $image->getClientOriginalname());
+            $image->move('images/products', $image->getClientOriginalname());
 
             $newPost = new Post();
             $newPost->user_id = Session("id");
@@ -78,13 +95,29 @@ class TransactionController extends Controller
     }
 
     public function editItem(Request $request){
-        $image = $request->product_image;
-        $image->move('images', $image->getClientOriginalname());
+        $validate = Validator::make(
+        $request->all(), 
+        ['product_name' => 'required',
+        'product_stock' => 'required|numeric|min:1',
+        'product_description' => 'required|max:255',
+        'product_minimum' => 'required|numeric|min:1',
+        'product_maximum' => 'required|numeric',
+        'price' => 'required',
+        // 'product_image' => 'required|mimes:jpeg,png,jpg|file',
+        ]);
 
+        if($validate->fails()){
+            return redirect()->back()->withInput(Input::all())->withErrors($validate);
+        }
+        
         $post = Session("post");
         $post->user_id = Session("id");
-        $post->link = $image->getClientOriginalname();
         $post->post_time = date("Y-m-d");
+        if($request->hasfile('imgProfile')){
+            $image = $request->product_image;
+            $image->move('images/products', $image->getClientOriginalname());
+            $post->link = $image->getClientOriginalname();
+        }
         $post->product_name = $request->product_name;
         $post->product_stock = $request->product_stock;
         $post->product_description = $request->product_description;

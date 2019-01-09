@@ -68,6 +68,14 @@
 					<label for="price">Product Price</label>
 		    </div>
 
+		    <div class="form-label-group">
+		        @if(isset($errors))
+		            @foreach($errors->all() as $error)
+		                {{ $error }} <br>
+		            @endforeach
+		        @endif
+		    </div>
+
 		    <div class="form-label-group" align="center">
 		    		<button class="btn btn-lg btn-primary btn-block btn-lend" type="submit">Lend Item</button>
 		    </div>

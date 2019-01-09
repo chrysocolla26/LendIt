@@ -36,33 +36,41 @@
 	    	</div>
 
 		    <div class="form-label-group">
-					<input type="text" class="form-control" id="product-name" name="product_name" placeholder="Product Name">
+					<input type="text" class="form-control" id="product-name" name="product_name" placeholder="Product Name" value={{ old('product_name') }}>
 					<label for="product-name">Product Name</label>
 		    </div>
 
 		    <div class="form-label-group">
-					<input type="number" min="1" max="99" class="form-control" id="product-stock" name="product_stock" placeholder="Stock" data-toggle="tooltip" data-placement="right" title="Stock barang yang dimiliki">
+					<input type="number" min="1" max="99" class="form-control" id="product-stock" name="product_stock" placeholder="Stock" data-toggle="tooltip" data-placement="right" title="Stock barang yang dimiliki" value={{ old('product_stock') }}>
 					<label for="product-stock">Product Stock</label>
 		    </div>
 
 		    <div class="form-label-group">
-				    <textarea class="form-control" rows="5" id="product-description" name="product_description" placeholder="Product Description" data-toggle="tooltip" data-placement="right" title="Deskripsi detail produk yang akan dipinjamkan"></textarea>
+				    <textarea class="form-control" rows="5" id="product-description" name="product_description" placeholder="Product Description" data-toggle="tooltip" data-placement="right" title="Deskripsi detail produk yang akan dipinjamkan"> {{ old('product_description') }}</textarea>
 				    <label for="product-description">Description</label>
 		    </div>
 
 		    <div class="form-label-group">
-					<input type="number" min="1" max="99" class="form-control" id="product-minimum" name="product_minimum" placeholder="Minimum" data-toggle="tooltip" data-placement="right" title="Minimum lama peminjaman barang (hari)">
+					<input type="number" min="1" max="99" class="form-control" id="product-minimum" name="product_minimum" placeholder="Minimum" data-toggle="tooltip" data-placement="right" title="Minimum lama peminjaman barang (hari)" value={{ old('product_minimum') }}>
 					<label for="product-minimum">Minimum</label>
 		    </div>
 
 		    <div class="form-label-group">
-					<input type="number" min="1" max="99" class="form-control" id="product-maximum" name="product_maximum" placeholder="Maximum" data-toggle="tooltip" data-placement="right" title="Maximum lama peminjaman barang (hari)">
+					<input type="number" min="1" max="99" class="form-control" id="product-maximum" name="product_maximum" placeholder="Maximum" data-toggle="tooltip" data-placement="right" title="Maximum lama peminjaman barang (hari)" value={{ old('product_maximum') }}>
 					<label for="product-maximum">Maximum</label>
 		    </div>
 
 		    <div class="form-label-group">
-					<input type="text" class="form-control" id="price" name="price" placeholder="Product Price" data-toggle="tooltip" data-placement="right" title="Harga peminjaman barang per hari">
+					<input type="text" class="form-control" id="price" name="price" placeholder="Product Price" data-toggle="tooltip" data-placement="right" title="Harga peminjaman barang per hari" value={{ old('price') }}>
 					<label for="price">Product Price</label>
+		    </div>
+
+		    <div class="form-label-group">
+		        @if(isset($errors))
+		            @foreach($errors->all() as $error)
+		                {{ $error }} <br>
+		            @endforeach
+		        @endif
 		    </div>
 
 		    <div class="form-label-group" align="center">
