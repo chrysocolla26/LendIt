@@ -50,7 +50,7 @@
 	              			<h3 class="mb-0">
 	                			<a class="text-dark" href="/borrow/{{ $post->product_name }}/{{ $post->id }}">{{ $post->product_name }}</a>
 	              			</h3>
-	          			<div class="mb-1 text-muted">{{ $post->post_time }} | Stock: {{$post->product_stock}}</div>
+	          			<div class="mb-1 text-muted">{{ $post->created_at }} | Stock: {{$post->product_stock}}</div>
 	          			<p class="card-text mb-1">
 	          				{{ $post->product_description }}
 	          			</p>

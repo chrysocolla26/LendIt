@@ -19,6 +19,7 @@ class UserController extends Controller
     	$newUser->password = $request->password;
     	$newUser->address = $request->address;
     	$newUser->role = 'user';
+        $newUser->created_at = date("Y-m-d");
     	$newUser->save();
     	return redirect('/login');
     }

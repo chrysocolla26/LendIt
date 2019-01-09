@@ -23,13 +23,13 @@
             			<a class="nav-link" href="/profile/{{Session('name')}}">Profile</a>
           			@endif
           		</li>
+              @if(Session::has('isLogin'))
           		<li class="nav-item dropdown">
             		<a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
             		<div class="dropdown-menu" aria-labelledby="dropdown03">
             			<a class="dropdown-item" href="/lend">Lend</a>
            		 	</div>
           		</li>
-          		@if(Session::has('isLogin'))
           		<li class="nav-item dropdown">
             		<a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">History</a>
             		<div class="dropdown-menu" aria-labelledby="dropdown03">

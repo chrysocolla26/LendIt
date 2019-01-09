@@ -43,13 +43,14 @@ class TransactionController extends Controller
             $newPost = new Post();
             $newPost->user_id = Session("id");
             $newPost->link = $image->getClientOriginalname();
-            $newPost->post_time = date("Y-m-d");
+            // $newPost->post_time = date("Y-m-d");
             $newPost->product_name = $request->product_name;
             $newPost->product_stock = $request->product_stock;
             $newPost->product_description = $request->product_description;
             $newPost->product_minimum = $request->product_minimum;
             $newPost->product_maximum = $request->product_maximum;
             $newPost->price = $request->price;
+            $newPost->created_at = date("Y-m-d");
             $newPost->save();
             return redirect('/');
         }
@@ -67,18 +68,15 @@ class TransactionController extends Controller
         }else{
             $post = Session("post");
             $borrow = new Borrow();
-            $borrow->lender_id = $post->user_id;
             $borrow->borrower_id = Session("id");
             $borrow->product_id = $post->id;
-            $borrow->link = $post->link;
-            $borrow->product_name = $post->product_name;
-            $borrow->product_description = $post->product_description;
             $borrow->borrow_qty = $request->borrow_qty;
             $borrow->borrow_days = $request->borrow_days;
             $borrow->start_date = date("Y-m-d");
             $borrow->end_date = date("Y-m-d", strtotime($borrow->start_date. ' + '.$borrow->borrow_days.' days'));
             $borrow->total_price = $post->price * $request->borrow_qty * $request->borrow_days;
             $borrow->status = "Requested";
+            $borrow->created_at = date("Y-m-d");
             $borrow->save();
 
             $post->product_stock = $post->product_stock - $request->borrow_qty;
@@ -109,10 +107,10 @@ class TransactionController extends Controller
         if($validate->fails()){
             return redirect()->back()->withInput(Input::all())->withErrors($validate);
         }
-        
+
         $post = Session("post");
         $post->user_id = Session("id");
-        $post->post_time = date("Y-m-d");
+        // $post->post_time = date("Y-m-d");
         if($request->hasfile('imgProfile')){
             $image = $request->product_image;
             $image->move('images/products', $image->getClientOriginalname());
@@ -124,6 +122,7 @@ class TransactionController extends Controller
         $post->product_minimum = $request->product_minimum;
         $post->product_maximum = $request->product_maximum;
         $post->price = $request->price;
+        $post->created_at = date("Y-m-d");
         $post->save();
         return redirect('/');
     }

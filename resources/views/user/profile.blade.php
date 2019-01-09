@@ -18,11 +18,24 @@
 					<div class="card-header">
 						<h6>{{ $user->name }}</h6>
 					</div>
+					<div class="card-header">
+						<img class="profile-image" src="/images/profiles/{{ $user->picture }}">
+					</div>
 					<div class="card-body">
 						<h6 class="card-title">email</h6>
 						<p class="card-text">{{ $user->email }}</p>
 						<h6 class="card-title">phone</h6>
-						<p class="card-text">{{ $user->email }}</p>
+						<p class="card-text">{{ $user->phone }}</p>
+						<h6 class="card-title">address</h6>
+						<p class="card-text">{{ $user->address }}</p>
+						<h6 class="card-title">member since</h6>
+						<p class="card-text">{{ date('F Y' ,strtotime($user->created_at)) }}</p>
+
+						@if($user->id == Session('id'))
+							<a href="#">
+								<button type="button" class="btn btn-primary">Edit Profile</button>
+							</a>
+						@endif
 					</div>
 				</div>
 			</div>
@@ -40,7 +53,7 @@
 	              			<h3 class="mb-0">
 	                			<a class="text-dark" href="/borrow/{{$post->product_name}}">{{ $post->product_name }}</a>
 	              			</h3>
-	          			<div class="mb-1 text-muted">{{ date('d F Y', strtotime($post->post_time)) }} | Stock: {{$post->product_stock}}</div>
+	          			<div class="mb-1 text-muted">{{ date('d F Y', strtotime($post->created_at)) }} | Stock: {{$post->product_stock}}</div>
 	          			<p class="card-text mb-1">
 	          				{{ $post->product_description }}
 	          			</p>
@@ -66,7 +79,7 @@
 	              			<h3 class="mb-0">
 	                			<a class="text-dark" href="/borrow/{{$post->product_name}}">{{ $post->product_name }}</a>
 	              			</h3>
-	          			<div class="mb-1 text-muted">{{ date('d F Y', strtotime($post->post_time)) }} | Stock: {{$post->product_stock}}</div>
+	          			<div class="mb-1 text-muted">{{ date('d F Y', strtotime($post->created_at)) }} | Stock: {{$post->product_stock}}</div>
 	          			<p class="card-text mb-1">
 	          				{{ $post->product_description }}
 	          			</p>
