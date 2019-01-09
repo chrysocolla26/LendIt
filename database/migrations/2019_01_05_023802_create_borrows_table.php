@@ -15,7 +15,6 @@ class CreateBorrowsTable extends Migration
     {
         Schema::create('borrows', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('lender_id');
             $table->integer('borrower_id');
             $table->integer('product_id');
             $table->string('link',255);

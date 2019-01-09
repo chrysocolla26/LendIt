@@ -38,7 +38,7 @@
 	              			<a href="/profile/{{ $post->user->name }}" title="">{{$post->user->name}}</a>
 	              		</strong>
 	              			<h3 class="mb-0">
-	                			<a class="text-dark" href="/borrow/{{$post->product_name}}">{{ $post->product_name }}</a>
+	                			<a class="text-dark" href="/borrow/{{$post->product_name}}/{{ $post->id }}">{{ $post->product_name }}</a>
 	              			</h3>
 	          			<div class="mb-1 text-muted">{{ $post->post_time }} | Stock: {{$post->product_stock}}</div>
 	          			<p class="card-text mb-1">

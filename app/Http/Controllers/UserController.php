@@ -12,22 +12,20 @@ use App\User;
 class UserController extends Controller
 {
     function register(Request $request){
-    	// dd($request);
-    	$newUser = new User();
-    	$newUser->name = $request->full_name;
-    	$newUser->email = $request->email;
-    	$newUser->password = $request->password;
-    	$newUser->address = $request->address;
-    	$newUser->role = 'user';
+        $newUser = new User();
+        $newUser->name = $request->full_name;
+        $newUser->email = $request->email;
+        $newUser->password = Hash::make($request->password);
+        $newUser->address = $request->address;
+        $newUser->role = 'user';
     	$newUser->save();
     	return redirect('/login');
     }
 
     function login(Request $request){
         $data = User::where('email', $request->email)->first();
-        // dd($data);
         if($data!=null){
-            if($data->password == $request->password){
+            if(Hash::check($request->password, $data->password)){
                 Session::put("name",$data->name);
                 Session::put("id",$data->id);
                 Session::put("role",$data->role);
