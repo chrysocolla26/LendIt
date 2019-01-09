@@ -19,4 +19,11 @@ class PostController extends Controller
         $posts = Post::orderBy('post_time', 'DESC')->where('user_id', '=', $user->id)->get();
         return view('user.profile', compact('posts', 'user'));
     }
+
+    public function search(Request $request){
+        $namaProduk = $request->txtSearch;
+        $posts = Post::where('product_name', 'LIKE', '%'.$namaProduk.'%')->orderBy('post_time', 'DESC')->get();
+
+        return view('user.home', compact('posts'));
+    }
 }

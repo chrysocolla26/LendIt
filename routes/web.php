@@ -16,6 +16,7 @@
 // });
 
 Route::get('/', 'PostController@home');
+Route::get('/search', 'PostController@search');
 Route::get('/profile/{name}', 'PostController@profile');
 
 Route::get('/login', function () {
