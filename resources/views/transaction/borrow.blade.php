@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-<div class="album py-5 bg-light">
+<div class="album py-1 bg-light">
 	<div class="grid-container container card">
 		<div class="item1">
 			<img src="/images/products/{{$post->link}}">
