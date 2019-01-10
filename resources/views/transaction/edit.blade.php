@@ -32,7 +32,7 @@
 		        <h1 class="h3 mb-3 font-weight-normal">Change your item description</h1>
 		        <p>
 		        	Edit your item descriptions.
-	        	</p>
+	        	</p>	
 	    	</div>
 
 		    <div class="form-label-group">
