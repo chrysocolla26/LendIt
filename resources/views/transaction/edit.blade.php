@@ -10,9 +10,6 @@
 @section('content')
 <div class="grid-container container">
 	<div class="grid-item image-input">
-		@php
-			$link = '/images/'.$post->link;
-		@endphp
 		<form method="POST" action="/edit-post" enctype="multipart/form-data" class="form-signin">
 			{{csrf_field()}}
 		<div class="form-group upload-image">
@@ -20,13 +17,13 @@
 	        <div class="input-group">
 	            <span class="input-group-btn">
 	                <span class="btn btn-default btn-file">
-	                    Browse… <input type="file" id="imgInp" name="product_image" disabled>
+	                    Browse… <input type="file" id="imgInp" name="product_image">
 	                </span>
 	            </span>
-	            <input type="text" class="form-control" readonly>
+	            <input type="text" class="form-control" readonly value="{{$post->link}}">
 	        </div>
 	        <br>
-	        <img id='img-upload' src=""/>
+	        <img id='img-upload' src="/images/products/{{$post->link}}"/>
 	    </div>
 	</div>
 	<div class="grid-item detail-input">	

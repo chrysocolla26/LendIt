@@ -1,4 +1,4 @@
-@extends('layouts.nav')
+	@extends('layouts.nav')
 
 @section('title', 'Borrow Item' )
 
@@ -19,7 +19,7 @@
 			</div>
 			<div class="product-detail">
 				<label>Lender :</label> <b>{{ $post->user->name }}</b><br>
-				<label>Posted :</label> <b>{{$post->created_at}}</b> <br>
+				<label>Posted :</label> <b>{{ date('d F Y', strtotime($post->created_at)) }}</b> <br>
 				<label>Stock :</label> <b>{{$post->product_stock}}</b> <br>
 				<label>Minimum : </label><b> {{$post->product_minimum}}</b> &nbsp;&nbsp;&nbsp; <label>Maximum : </label><b> {{$post->product_maximum}} day(s)</b> <br>
 				<label>Price :</label> <b> Rp. {{$post->price}} / day</b> <br> <br>
