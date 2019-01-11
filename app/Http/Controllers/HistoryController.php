@@ -19,11 +19,14 @@ class HistoryController extends Controller
 
     public function lendHistory(){
     	$posts = Post::where('user_id', '=', Session("id"))->get();
-
+    	$i = 0;
+    	$lends = [];
     	foreach ($posts as $post) {
-    		$lends = Borrow::where('product_id', '=', $post->id)->get();
-    		if($lends)
-    			break;
+    		$lend = Borrow::where('product_id', '=', $post->id)->first();
+    		if($lend){
+    			$lends[$i] = $lend;
+    			$i = $i+1;
+    		}
     	}
     	return view('history.lend-history',compact('lends'));
     }

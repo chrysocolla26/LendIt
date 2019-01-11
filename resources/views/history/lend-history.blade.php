@@ -49,6 +49,7 @@
 			          			<div>
 			          			@if($post->status == "Requested")
 			          			<button type="button" class="btn btn-success"><span class="fas fa-check-circle"></span> Accept Request</button>
+			          			<button type="button" class="btn btn-danger"><span class="fas fa-times-circle"></span> Decline</button>
 			          			@endif
 			          			</div>
 		          			</div>
