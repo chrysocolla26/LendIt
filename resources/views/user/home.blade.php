@@ -11,10 +11,42 @@
 	<div class="container">
 		<div class="row">
 {{-- SIDE --}}
-			<div class="col-md-2">
-				<h2>SIDE NAV</h2>
-				<div class="card flex-md-row mb-4 shadow-sm h-md-250">
-					as
+			<div class="col-md-3">
+				<h2>NOTICE</h2>
+				<div class="card">
+				  <div class="card-body">
+				    <h5 class="card-title">Richie Muliawan</h5>
+				     <h6 class="card-subtitle mb-2 text-muted">has request to borrow your:</h6>
+				    <p class="card-text">detail</p>
+				    <a href="#" class="btn btn-primary">Process Request</a>
+				  </div>
+				</div>
+				<div class="card">
+				  <div class="card-body">
+				    <h5 class="card-title">Klemens Litano</h5>
+				     <h6 class="card-subtitle mb-2 text-muted">has request to borrow your:</h6>
+				    <p class="card-text">detail</p>
+				    <a href="#" class="btn btn-primary">Process Request</a>
+				  </div>
+				</div>
+				<div class="card shadow-sm news">
+					<img src="/images/products/camera.png" style="object-fit: contain; height: 100%; width: 100%;">
+					<div class="overlay">
+						<div class="card-desc">50%</div>
+					</div>
+					<div class="card-body">
+						<p class="card-text" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; text-align: center;">
+							Judul
+						</p>
+					</div>
+				</div>
+				<div class="card">
+				  <div class="card-body">
+				    <h5 class="card-title">Hansel Septiadi</h5>
+				     <h6 class="card-subtitle mb-2 text-muted">has request to borrow your:</h6>
+				    <p class="card-text">detail</p>
+				    <a href="#" class="btn btn-primary">Process Request</a>
+				  </div>
 				</div>
 			</div>
 			<div class="col">
@@ -76,7 +108,7 @@
 				</div>
 				@endif
 			</div>
-			<div class="col-md-2">
+{{-- 			<div class="col-md-2">
 				<h2>NEWS</h2>
 				<div class="card mb-4 shadow-sm news">
 					<img src="/images/products/camera.png" style="object-fit: contain; height: 100%; width: 100%;">
@@ -89,7 +121,7 @@
 						</p>
 					</div>
 				</div>
-			</div>
+			</div> --}}
 		</div>
 	</div>
 </div>

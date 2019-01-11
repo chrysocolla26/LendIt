@@ -12,7 +12,7 @@
 <div class="album py-5 bg-light">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-2">
+			<div class="col-md-3">
 				<h2>PROFILE</h2>
 				<div class="card text-white bg-secondary mb-4 shadow-sm h-md-250">
 					<div class="card-header">
@@ -32,7 +32,7 @@
 						<p class="card-text">{{ date('F Y' ,strtotime($user->created_at)) }}</p>
 
 						@if($user->id == Session('id'))
-							<a href="#">
+							<a href="/edit-profile/{{Session('id')}}">
 								<button type="button" class="btn btn-primary">Edit Profile</button>
 							</a>
 						@endif
@@ -89,24 +89,10 @@
           		@endif
 				@endforeach
 				@else
-					<div class="card flex-md-row mb-4 shadow-sm h-md-250 content">
+					<div class="card flex-md-row mb-4 shadow-sm h-md-250 content" style="padding:10px">
 						You haven't post yet
 					</div>
 				@endif
-			</div>
-			<div class="col-md-2">
-				<h2>NEWS</h2>
-				<div class="card mb-4 shadow-sm news">
-					<img src="/images/products/camera.png" style="object-fit: contain; height: 100%; width: 100%;">
-					<div class="overlay">
-						<div class="card-desc">50%</div>
-					</div>
-					<div class="card-body">
-						<p class="card-text" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; text-align: center;">
-							Judul
-						</p>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
