@@ -93,6 +93,9 @@
 						You haven't post yet
 					</div>
 				@endif
+				<nav aria-label="pagination">
+					{{$posts->links()}}
+				</nav>
 			</div>
 		</div>
 	</div>

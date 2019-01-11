@@ -103,7 +103,8 @@ class UserController extends Controller
         }
         $user->updated_at = Carbon::now();
         $user->save();
-
+        Session::put("name",$request->name);
+        
         return redirect()->action('PostController@profile', ['name' => $request->name]);
     }
 }
