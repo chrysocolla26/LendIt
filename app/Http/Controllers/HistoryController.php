@@ -13,7 +13,7 @@ use App\Borrow;
 class HistoryController extends Controller
 {
     public function borrowHistory(){
-        $borrows = Borrow::where('borrower_id', 'LIKE', Session("id"))->get();
+        $borrows = Borrow::where('borrower_id', '=', Session("id"))->get();
 
     	return view('history.borrow-history',compact('borrows'));
     }

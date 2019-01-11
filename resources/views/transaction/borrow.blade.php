@@ -1,4 +1,4 @@
-@extends('layouts.nav')
+	@extends('layouts.nav')
 
 @section('title', 'Borrow Item' )
 
@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-<div class="album py-5 bg-light">
+<div class="album py-1 bg-light">
 	<div class="grid-container container card">
 		<div class="item1">
 			<img src="/images/products/{{$post->link}}">
@@ -19,7 +19,7 @@
 			</div>
 			<div class="product-detail">
 				<label>Lender :</label> <b>{{ $post->user->name }}</b><br>
-				<label>Posted :</label> <b>{{$post->created_at}}</b> <br>
+				<label>Posted :</label> <b>{{ date('d F Y', strtotime($post->created_at)) }}</b> <br>
 				<label>Stock :</label> <b>{{$post->product_stock}}</b> <br>
 				<label>Minimum : </label><b> {{$post->product_minimum}}</b> &nbsp;&nbsp;&nbsp; <label>Maximum : </label><b> {{$post->product_maximum}} day(s)</b> <br>
 				<label>Price :</label> <b> Rp. {{$post->price}} / day</b> <br> <br>
@@ -30,6 +30,10 @@
 			<div class="form-borrow">
 				<form method="POST" action="/borrow-post" enctype="multipart/form-data" class="form-borrow">
 					{{csrf_field()}}
+					<div class="form-label-group">
+						<input type="date" class="form-control" id="start-date" name="start_date" placeholder="" data-toggle="tooltip" data-placement="right" title="Mulai tanggal peminjaman">
+						<label for="start-date">Total Day</label>
+			    	</div>
 					<div class="form-label-group">
 						<input type="number" value="{{$post->product_minimum}}" min="{{$post->product_minimum}}" max="{{$post->product_maximum}}" class="form-control" id="borrow-days" name="borrow_days" placeholder="" data-toggle="tooltip" data-placement="right" title="Jumlah hari peminjaman" onchange="changePrice()">
 						<label for="borrow-days">Total Day</label>
@@ -56,7 +60,7 @@
 			                </span>
 			            </div>
 			        </div> -->
-			        <div class="form-label-group" align="center">
+			        <div class="form-label-group" align="center" style="margin-top: 15px;">
 				    	<button class="btn btn-lg btn-primary btn-block btn-borrow" type="submit">Borrow Item</button>
 				    </div>
 				</form>
