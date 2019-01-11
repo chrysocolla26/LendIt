@@ -40,16 +40,30 @@
 	          			<div class="container">
 		          			<div class="d-flex justify-content-between" style="margin-top: 10px">
 		          				<div>
-			              		@if($post->user_id == Session('id'))
+			              		@if($post->post->user_id == Session('id'))
 			              		<a href="/edit/{{$post->post->product_name}}/{{$post->post->id}}">Edit your post</a>
 			              		@else
 			              		<a href="/borrow/{{$post->post->product_name}}/{{$post->post->id}}">Continue reading</a>
 			          			@endif
 			          			</div>
 			          			<div>
+
 			          			@if($post->status == "Requested")
-			          			<button type="button" class="btn btn-success"><span class="fas fa-check-circle"></span> Accept Request</button>
-			          			<button type="button" class="btn btn-danger"><span class="fas fa-times-circle"></span> Decline</button>
+			          			<a href="/lend-accept/{{$post->post->product_name}}/{{$post->post->id}}/{{$post->id}}"><button type="button" class="btn btn-success"><span class="fas fa-check-circle"></span> Accept Request</button></a>
+			          			<a href="/lend-decline/{{$post->post->product_name}}/{{$post->post->id}}/{{$post->id}}"><button type="button" class="btn btn-outline-danger"><span class="fas fa-times-circle"></span> Decline</button></a>
+
+			          			@elseif($post->status == "Pay")
+			          			<button type="button" class="btn btn-warning"><span class="fas fa-money-bill-wave"></span> Waiting for payment</button>
+
+			          			@elseif($post->status == "Paid")
+			          			<a href="/lend-deliver/{{$post->post->product_name}}/{{$post->post->id}}/{{$post->id}}"><button type="button" class="btn"><span class="fas fa-truck"></span> Deliver</button></a>
+
+			          			@elseif($post->status == "Delivered")
+			          			<a href="/lend-deliver/{{$post->post->product_name}}/{{$post->post->id}}/{{$post->id}}"><button type="button" class="btn btn-success"><span class="fas fa-check-circle"></span> Delivered</button></a>
+
+			          			@elseif($post->status == "On Going")
+			          			<button type="button" class="btn"><span class="fas fa-clock"></span> On Going</button>
+
 			          			@endif
 			          			</div>
 		          			</div>

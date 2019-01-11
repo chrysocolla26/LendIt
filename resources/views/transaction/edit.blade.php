@@ -78,7 +78,7 @@
 		    </div>
 	    </div>
 	    <div class="grid-item delete-button">
-	    	<a href="/delete-post"><button type="button" class="btn btn-outline-danger">Delete your post</button></a>
+	    	<a href="/delete-post"><button type="button" class="btn btn-outline-danger"><i class="fas fa-trash"></i> Delete your post</button></a>
 	    </div>
     </form>
 </div>

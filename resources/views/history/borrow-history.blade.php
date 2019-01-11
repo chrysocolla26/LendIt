@@ -49,6 +49,21 @@
 			          			<div>
 			          			@if($post->status == "Requested")
 			          			<button type="button" class="btn btn-warning"><span class="fas fa-gavel"></span> Requested</button>
+			          			<a href="/borrow-cancel/{{$post->post->product_name}}/{{$post->post->id}}/{{$post->id}}"><button type="button" class="btn btn-outline-danger"><span class="fas fa-times-circle"></span> Cancel</button></a>
+
+			          			@elseif($post->status == "Pay")
+			          			<a href="/borrow-pay/{{$post->post->product_name}}/{{$post->post->id}}/{{$post->id}}"><button type="button" class="btn btn-warning"><span class="fas fa-money-bill-wave"></span> Pay item</button></a>
+			          			<a href="/borrow-cancelPayment/{{$post->post->product_name}}/{{$post->post->id}}/{{$post->id}}"><button type="button" class="btn btn-outline-danger"><span class="fas fa-times-circle"></span> Cancel Payment</button></a>
+
+			          			@elseif($post->status == "Paid")
+			          			<button type="button" class="btn"><span class="fas fa-clock"></span> On Process</button>
+
+			          			@elseif($post->status == "Delivered")
+			          			<label style="color: red">* Please approve that your item(s) has arrived</label>
+			          			<a href="/borrow-approve/{{$post->post->product_name}}/{{$post->post->id}}/{{$post->id}}"><button type="button" class="btn btn-success"><span class="fas fa-check-circle"></span> Item Arrived</button></a>
+
+			          			@elseif($post->status == "On Going")
+			          			<button type="button" class="btn"><span class="fas fa-clock"></span> On Going</button>
 			          			@endif
 			          			</div>
 		          			</div>
