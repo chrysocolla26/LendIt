@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use App\Post;
 use App\User;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -65,5 +66,44 @@ class UserController extends Controller
         Session::flush();
         
         return redirect('');
-    }    
+    }
+
+    public function editProfile(){
+        $user = User::where('id', Session::get('id'))->first();
+        Session::put("user", $user);
+        return view('user.edit-profile', compact('user'));
+    }
+
+    public function newEditProfile(Request $request){
+
+        $validate = Validator::make(
+        $request->all(), 
+        ['name' => 'required',
+        'email' => 'required|email',
+        'address' => 'required|max:255',
+        'phone' => 'required|numeric',
+        ]);
+
+        if($validate->fails()){
+            return redirect()->back()->withInput(Input::all())->withErrors($validate);
+        }
+
+        $user = Session("user");
+        $user->name = $request->name;
+        if($request->hasfile('picture')){
+            $image = $request->picture;
+            $image->move('images/products', $image->getClientOriginalname());
+            $user->link = $image->getClientOriginalname();
+        }
+        $user->email = $request->email;
+        $user->address = $request->address;
+        $user->phone = $request->phone;
+        if($request->_token != $request->password){
+            $user->password = Hash::make($request->password);
+        }
+        $user->updated_at = Carbon::now();
+        $user->save();
+
+        return redirect()->action('PostController@profile', ['name' => $request->name]);
+    }
 }
