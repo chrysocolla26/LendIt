@@ -36,7 +36,7 @@
 	    	</div>
 
 		    <div class="form-label-group">
-					<input type="text" class="form-control" id="Name" name="name" placeholder="Full Name" value={{ $user->name }}>
+					<input type="text" class="form-control" id="Name" name="name" placeholder="Full Name" value="{{ $user->name }}">
 					<label for="Name">Full Name</label>
 		    </div>
 
