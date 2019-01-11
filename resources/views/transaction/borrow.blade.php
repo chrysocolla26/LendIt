@@ -31,6 +31,10 @@
 				<form method="POST" action="/borrow-post" enctype="multipart/form-data" class="form-borrow">
 					{{csrf_field()}}
 					<div class="form-label-group">
+						<input type="date" class="form-control" id="start-date" name="start_date" placeholder="" data-toggle="tooltip" data-placement="right" title="Mulai tanggal peminjaman">
+						<label for="start-date">Total Day</label>
+			    	</div>
+					<div class="form-label-group">
 						<input type="number" value="{{$post->product_minimum}}" min="{{$post->product_minimum}}" max="{{$post->product_maximum}}" class="form-control" id="borrow-days" name="borrow_days" placeholder="" data-toggle="tooltip" data-placement="right" title="Jumlah hari peminjaman" onchange="changePrice()">
 						<label for="borrow-days">Total Day</label>
 			    	</div>
@@ -56,7 +60,7 @@
 			                </span>
 			            </div>
 			        </div> -->
-			        <div class="form-label-group" align="center">
+			        <div class="form-label-group" align="center" style="margin-top: 15px;">
 				    	<button class="btn btn-lg btn-primary btn-block btn-borrow" type="submit">Borrow Item</button>
 				    </div>
 				</form>

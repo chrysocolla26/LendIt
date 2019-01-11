@@ -31,7 +31,7 @@
 	              			<h3 class="mb-0">
 	                			<a class="text-dark" href="/borrow/{{$post->post->product_name}}/{{$post->post->id}}">{{ $post->post->product_name }}</a>
 	              			</h3>
-	          			<div class="mb-1 text-muted">{{ date('d F Y', strtotime($post->created_at)) }} </div>
+	          			<div class="mb-1 text-muted">Requested : {{ date('d F Y', strtotime($post->created_at)) }} </div>
 	          			<div class="mb-1 text-muted">Stock Requested : {{$post->borrow_qty}}</div>
 	          			<div class="mb-1 text-muted">Number of days requested : {{ $post->borrow_days }}</div>
 	          			<p class="card-text mb-1">

@@ -72,7 +72,7 @@ class TransactionController extends Controller
             $borrow->product_id = $post->id;
             $borrow->borrow_qty = $request->borrow_qty;
             $borrow->borrow_days = $request->borrow_days;
-            $borrow->start_date = date("Y-m-d");
+            $borrow->start_date = $request->start_date;
             $borrow->end_date = date("Y-m-d", strtotime($borrow->start_date. ' + '.$borrow->borrow_days.' days'));
             $borrow->total_price = $post->price * $request->borrow_qty * $request->borrow_days;
             $borrow->status = "Requested";
