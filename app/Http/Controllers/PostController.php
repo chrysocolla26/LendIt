@@ -12,7 +12,7 @@ class PostController extends Controller
 {
     public function home()
     {
-        $postNotification = Post::orderBy('created_at', 'DESC')->paginate(4);
+        $posts = Post::orderBy('created_at', 'DESC')->paginate(4);
         
         $postNotification = Post::where('user_id', '=', Session("id"))->get();
         $i = 0;
@@ -24,8 +24,13 @@ class PostController extends Controller
                 $i = $i+1;
             }
         }
+        $borrowNotification = Borrow::where('borrower_id', Session("id"))->get();
+        foreach ($borrowNotification as $borrow) {
+            $lends[$i] = $borrow;
+            $i = $i+1;
+        }
         Session::put("lends", $lends);
-        return view('user.home', compact('posts', 'lends'));
+        return view('user.home', compact('posts', 'lends', 'borrowNotification'));
     }
 
     public function profile($name){

@@ -16,10 +16,10 @@
 				@foreach($lends as $i=>$lend)
 				<div class="card">
 				  <div class="card-body">
+				  @if($lend->borrower_id != Session("id"))
 				    <h5 class="card-title">{{$lend->user->name}}</h5>
 				     <h6 class="card-subtitle mb-2 text-muted">has request to borrow your:</h6>
 				    <p class="card-text">{{ $lend->post->product_name }}</p>
-
 				    @if($lend->status == "Requested")
           			<a href="/lend-accept/{{$lend->post->product_name}}/{{$lend->post->id}}/{{$lend->id}}"><button type="button" class="btn btn-success"><span class="fas fa-check-circle"></span> Accept Request</button></a>
           			<a href="/lend-decline/{{$lend->post->product_name}}/{{$lend->post->id}}/{{$lend->id}}"><button type="button" class="btn btn-outline-danger"><span class="fas fa-times-circle"></span> Decline</button></a>
@@ -35,6 +35,33 @@
 
           			@elseif($lend->status == "On Going")
           			<a href="/lend-history"><button type="button" class="btn"><span class="fas fa-clock"></span> On Going</button></a>
+          			@endif
+
+          			@else
+          			<h5 class="card-title">{{$lend->user->name}}</h5>
+				     <h6 class="card-subtitle mb-2 text-muted">you have requested to borrow:</h6>
+				    <p class="card-text">{{ $lend->post->product_name }}</p>
+				     <h6 class="card-subtitle mb-2 text-muted">from:</h6>
+				    <p class="card-text">{{ $lend->post->user->name }}</p>
+
+          			@if($lend->status == "Requested")
+          			<button type="button" class="btn btn-warning"><span class="fas fa-gavel"></span> Requested</button>
+          			<a href="/borrow-cancel/{{$lend->post->product_name}}/{{$lend->post->id}}/{{$lend->id}}"><button type="button" class="btn btn-outline-danger"><span class="fas fa-times-circle"></span> Cancel</button></a>
+
+          			@elseif($lend->status == "Pay")
+          			<a href="/borrow-pay/{{$lend->post->product_name}}/{{$lend->post->id}}/{{$lend->id}}"><button type="button" class="btn btn-warning"><span class="fas fa-money-bill-wave"></span> Pay item</button></a>
+          			<a href="/borrow-cancelPayment/{{$lend->post->product_name}}/{{$lend->post->id}}/{{$lend->id}}"><button type="button" class="btn btn-outline-danger"><span class="fas fa-times-circle"></span> Cancel Payment</button></a>
+
+          			@elseif($lend->status == "Paid")
+          			<button type="button" class="btn"><span class="fas fa-clock"></span> On Process</button>
+
+          			@elseif($lend->status == "Delivered")
+          			<label style="color: red">* Please approve that your item(s) has arrived</label>
+          			<a href="/borrow-approve/{{$lend->post->product_name}}/{{$lend->post->id}}/{{$lend->id}}"><button type="button" class="btn btn-success"><span class="fas fa-check-circle"></span> Item Arrived</button></a>
+
+          			@elseif($lend->status == "On Going")
+          			<button type="button" class="btn"><span class="fas fa-clock"></span> On Going</button>
+          			@endif
 
           			@endif
 				  </div>
