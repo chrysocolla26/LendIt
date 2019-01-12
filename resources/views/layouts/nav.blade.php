@@ -33,7 +33,7 @@
           		<li class="nav-item dropdown">
             		<a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">History</a>
             		<div class="dropdown-menu" aria-labelledby="dropdown03">
-            			<a class="dropdown-item" href="#">Lend History</a>
+            			<a class="dropdown-item" href="/lend-history">Lend History</a>
             			<a class="dropdown-item" href="/borrow-history">Borrow History</a>
            		 	</div>
           		</li>

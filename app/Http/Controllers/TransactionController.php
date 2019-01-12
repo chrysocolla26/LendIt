@@ -78,9 +78,6 @@ class TransactionController extends Controller
             $borrow->status = "Requested";
             $borrow->created_at = date("Y-m-d");
             $borrow->save();
-
-            $post->product_stock = $post->product_stock - $request->borrow_qty;
-            $post->save();
             return redirect('/');
         }
     }
