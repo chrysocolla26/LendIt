@@ -14,7 +14,7 @@ class PostController extends Controller
     {
         $posts = Post::orderBy('created_at', 'DESC')->paginate(4);
         
-        $postNotification = Post::where('user_id', '=', Session("id"))->get();
+        $postNotification = Post::where('user_id', '=', Session("id"))->orderBy('updated_at', 'DESC')->get();
         $i = 0;
         $lends = [];
         foreach ($postNotification as $post) {
@@ -24,7 +24,7 @@ class PostController extends Controller
                 $i = $i+1;
             }
         }
-        $borrowNotification = Borrow::where('borrower_id', Session("id"))->get();
+        $borrowNotification = Borrow::where('borrower_id', Session("id"))->orderBy('updated_at', 'DESC')->get();
         foreach ($borrowNotification as $borrow) {
             $lends[$i] = $borrow;
             $i = $i+1;
