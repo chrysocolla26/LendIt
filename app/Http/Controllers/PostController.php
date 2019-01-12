@@ -12,8 +12,8 @@ class PostController extends Controller
 {
     public function home()
     {
-        $posts = Post::orderBy('created_at', 'DESC')->get();
-
+        $postNotification = Post::orderBy('created_at', 'DESC')->paginate(4);
+        
         $postNotification = Post::where('user_id', '=', Session("id"))->get();
         $i = 0;
         $lends = [];
@@ -30,13 +30,13 @@ class PostController extends Controller
 
     public function profile($name){
     	$user = User::where('name', 'LIKE', $name)->first();
-        $posts = Post::orderBy('created_at', 'DESC')->where('user_id', '=', $user->id)->get();
+        $posts = Post::orderBy('created_at', 'DESC')->where('user_id', '=', $user->id)->paginate(4);
         return view('user.profile', compact('posts', 'user'));
     }
 
     public function search(Request $request){
         $namaProduk = $request->txtSearch;
-        $posts = Post::where('product_name', 'LIKE', '%'.$namaProduk.'%')->orderBy('created_at', 'DESC')->get();
+        $posts = Post::where('product_name', 'LIKE', '%'.$namaProduk.'%')->orderBy('created_at', 'DESC')->paginate(4);
 
         return view('user.home', compact('posts'));
     }

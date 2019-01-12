@@ -118,6 +118,9 @@
 					Data Not Found!
 				</div>
 				@endif
+				<nav aria-label="pagination">
+					{{$posts->links()}}
+				</nav>
 			</div>
 {{-- 			<div class="col-md-2">
 				<h2>NEWS</h2>
