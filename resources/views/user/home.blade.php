@@ -13,22 +13,41 @@
 {{-- SIDE --}}
 			<div class="col-md-3">
 				<h2>NOTICE</h2>
+				@foreach($lends as $i=>$lend)
 				<div class="card">
 				  <div class="card-body">
-				    <h5 class="card-title">Richie Muliawan</h5>
+				    <h5 class="card-title">{{$lend->user->name}}</h5>
 				     <h6 class="card-subtitle mb-2 text-muted">has request to borrow your:</h6>
-				    <p class="card-text">detail</p>
-				    <a href="#" class="btn btn-primary">Process Request</a>
+				    <p class="card-text">{{ $lend->post->product_name }}</p>
+
+				    @if($lend->status == "Requested")
+          			<a href="/lend-accept/{{$lend->post->product_name}}/{{$lend->post->id}}/{{$lend->id}}"><button type="button" class="btn btn-success"><span class="fas fa-check-circle"></span> Accept Request</button></a>
+          			<a href="/lend-decline/{{$lend->post->product_name}}/{{$lend->post->id}}/{{$lend->id}}"><button type="button" class="btn btn-outline-danger"><span class="fas fa-times-circle"></span> Decline</button></a>
+
+          			@elseif($lend->status == "Pay")
+          			<button type="button" class="btn btn-warning"><span class="fas fa-money-bill-wave"></span> Waiting for payment</button>
+
+          			@elseif($lend->status == "Paid")
+          			<a href="/lend-deliver/{{$lend->post->product_name}}/{{$lend->post->id}}/{{$lend->id}}"><button type="button" class="btn"><span class="fas fa-truck"></span> Deliver</button></a>
+
+          			@elseif($lend->status == "Delivered")
+          			<a href="/lend-deliver/{{$lend->post->product_name}}/{{$lend->post->id}}/{{$lend->id}}"><button type="button" class="btn btn-success"><span class="fas fa-check-circle"></span> Delivered</button></a>
+
+          			@elseif($lend->status == "On Going")
+          			<a href="/lend-history"><button type="button" class="btn"><span class="fas fa-clock"></span> On Going</button></a>
+
+          			@endif
 				  </div>
 				</div>
-				<div class="card">
+				@endforeach
+				<!-- <div class="card">
 				  <div class="card-body">
 				    <h5 class="card-title">Klemens Litano</h5>
 				     <h6 class="card-subtitle mb-2 text-muted">has request to borrow your:</h6>
 				    <p class="card-text">detail</p>
 				    <a href="#" class="btn btn-primary">Process Request</a>
 				  </div>
-				</div>
+				</div> -->
 				<div class="card shadow-sm news">
 					<img src="/images/products/camera.png" style="object-fit: contain; height: 100%; width: 100%;">
 					<div class="overlay">
@@ -39,14 +58,6 @@
 							Judul
 						</p>
 					</div>
-				</div>
-				<div class="card">
-				  <div class="card-body">
-				    <h5 class="card-title">Hansel Septiadi</h5>
-				     <h6 class="card-subtitle mb-2 text-muted">has request to borrow your:</h6>
-				    <p class="card-text">detail</p>
-				    <a href="#" class="btn btn-primary">Process Request</a>
-				  </div>
 				</div>
 			</div>
 			<div class="col">

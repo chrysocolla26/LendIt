@@ -47,9 +47,16 @@ Route::post('/edit-post', 'TransactionController@editItem');
 
 Route::get('/delete-post', 'TransactionController@deleteItem');
 
-Route::get('/lend-history', 'HistoryController@lendHistory');
+Route::get('/lend-history', 'HistoryController@lendHistory')->middleware(\App\Http\Middleware\AuthCheck::class);
+Route::get('/lend-accept/{product_name}/{product_id}/{id}', 'HistoryController@lendAccept');
+Route::get('/lend-decline/{product_name}/{product_id}/{id}', 'HistoryController@lendDecline');
+Route::get('/lend-deliver/{product_name}/{product_id}/{id}', 'HistoryController@lendDeliver');
 
 Route::get('/borrow-history', 'HistoryController@borrowHistory')->middleware(\App\Http\Middleware\AuthCheck::class);
+Route::get('/borrow-pay/{product_name}/{product_id}/{id}', 'HistoryController@borrowPay');
+Route::get('/borrow-cancel/{product_name}/{product_id}/{id}', 'HistoryController@borrowCancel');
+Route::get('/borrow-cancelPayment/{product_name}/{product_id}/{id}', 'HistoryController@borrowCancelPayment');
+Route::get('/borrow-approve/{product_name}/{product_id}/{id}', 'HistoryController@borrowApprove');
 
 Route::get('/test', function () {
     return view('staff.test');
