@@ -12,6 +12,7 @@ class PostController extends Controller
 {
     public function home()
     {
+        Session::forget("namaProduk");
         $posts = Post::orderBy('created_at', 'DESC')->paginate(4);
         
         $postNotification = Post::where('user_id', '=', Session("id"))->orderBy('updated_at', 'DESC')->get();
@@ -30,7 +31,7 @@ class PostController extends Controller
             $i = $i+1;
         }
         Session::put("lends", $lends);
-        return view('user.home', compact('posts', 'lends', 'borrowNotification'));
+        return view('user.home', compact('posts', 'lends'));
     }
 
     public function profile($name){
@@ -40,9 +41,28 @@ class PostController extends Controller
     }
 
     public function search(Request $request){
+        Session::forget("namaProduk");
         $namaProduk = $request->txtSearch;
         $posts = Post::where('product_name', 'LIKE', '%'.$namaProduk.'%')->orderBy('created_at', 'DESC')->paginate(4);
+        
+        $postNotification = Post::where('user_id', '=', Session("id"))->orderBy('updated_at', 'DESC')->get();
+        $i = 0;
+        $lends = [];
+        foreach ($postNotification as $post) {
+            $lend = Borrow::where('product_id', '=', $post->id)->first();
+            if($lend){
+                $lends[$i] = $lend;
+                $i = $i+1;
+            }
+        }
+        $borrowNotification = Borrow::where('borrower_id', Session("id"))->orderBy('updated_at', 'DESC')->get();
+        foreach ($borrowNotification as $borrow) {
+            $lends[$i] = $borrow;
+            $i = $i+1;
+        }
+        Session::put("namaProduk", $namaProduk);
+        Session::put("lends", $lends);
 
-        return view('user.home', compact('posts'));
+        return view('user.home', compact('posts', 'lends'));
     }
 }

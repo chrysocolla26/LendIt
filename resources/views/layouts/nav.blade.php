@@ -11,7 +11,7 @@
 
 	    <div class="collapse navbar-collapse" id="navbarlendit">
 	        <form class="form-inline my-2 my-md-0" method="GET" action="/search">
-	          <input class="form-control" type="text" placeholder="Search" name="txtSearch">
+	          <input class="form-control" type="text" placeholder="Search" name="txtSearch" value="{{Session('namaProduk')}}">
 	        </form>
 
 	        <ul class="navbar-nav mr-auto">
