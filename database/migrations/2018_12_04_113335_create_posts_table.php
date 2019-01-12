@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('link',255);
-            $table->date('post_time');
+            // $table->date('post_time');
             $table->string('product_name',255);
             $table->integer('product_stock');
             $table->string('product_description',255);

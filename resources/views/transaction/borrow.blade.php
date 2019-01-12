@@ -1,71 +1,49 @@
-@extends('layouts.master')
+	@extends('layouts.nav')
 
 @section('title', 'Borrow Item' )
 
 @section('extcss')
 	<link rel="stylesheet" type="text/css" href="/css/floating-labels.css">
-	<style type="text/css">
-		.grid-container{
-			display: grid;
-			grid-template-columns: 40% auto;
-			/*margin: 10px;*/
-		}
-		.item1{
-			/*background-color: yellow;*/
-			padding: 50px 50px 50px 50px;
-		}
-		.item1 img{
-			border: 1px solid black;
-			width: 480px;
-			height: auto;
-		}
-		.item2{
-			/*background-color: green;*/
-			width: 500px;
-			padding: 50px 20px;
-		}
-		.product-title b{
-			font-size: 30px;
-		}
-		.product-detail label{
-			color: gray;
-			margin: 0;
-			padding: 0;
-		}
-		.btn-borrow{
-			width: 50%; 
-			background-color: #343a40; 
-			font-size: 18px;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="/css/template.css">
 @endsection
 
 @section('content')
-@php
-	$link = '/images/'.$post->link;
-@endphp
-	<div class="grid-container">
+<div class="album py-1 bg-light">
+	<div class="grid-container container card">
 		<div class="item1">
-			<img src="{{$link}}">
+			<img src="/images/products/{{$post->link}}">
 		</div>
 		<div class="item2">
 			<div class="product-title">
 				<b>{{$post->product_name}}</b>
 			</div>
 			<div class="product-detail">
-				<label>Posted :</label> <b>{{$post->post_time}}</b> <br>
+				<label>Lender :</label> <b>{{ $post->user->name }}</b><br>
+				<label>Posted :</label> <b>{{ date('d F Y', strtotime($post->created_at)) }}</b> <br>
 				<label>Stock :</label> <b>{{$post->product_stock}}</b> <br>
 				<label>Minimum : </label><b> {{$post->product_minimum}}</b> &nbsp;&nbsp;&nbsp; <label>Maximum : </label><b> {{$post->product_maximum}} day(s)</b> <br>
 				<label>Price :</label> <b> Rp. {{$post->price}} / day</b> <br> <br>
 				<label>Product Description :</label> <br>
+				
 				<p>{{$post->product_description}}</p>
 			</div>
 			<div class="form-borrow">
 				<form method="POST" action="/borrow-post" enctype="multipart/form-data" class="form-borrow">
 					{{csrf_field()}}
 					<div class="form-label-group">
-						<input type="number" value="{{$post->product_minimum}}" min="{{$post->product_minimum}}" max="{{$post->product_maximum}}" class="form-control" id="total-borrow" name="total_borrow" placeholder="" data-toggle="tooltip" data-placement="right" title="Jumlah barang yang ingin dipinjam">
-						<label for="total-borrow">Total Item</label>
+						<input type="date" class="form-control" id="start-date" name="start_date" placeholder="" data-toggle="tooltip" data-placement="right" title="Mulai tanggal peminjaman">
+						<label for="start-date">Total Day</label>
+			    	</div>
+					<div class="form-label-group">
+						<input type="number" value="{{$post->product_minimum}}" min="{{$post->product_minimum}}" max="{{$post->product_maximum}}" class="form-control" id="borrow-days" name="borrow_days" placeholder="" data-toggle="tooltip" data-placement="right" title="Jumlah hari peminjaman" onchange="changePrice()">
+						<label for="borrow-days">Total Day</label>
+			    	</div>
+			    	<div class="form-label-group">
+						<input type="number" value="1" min="1" max="{{$post->product_stock}}" class="form-control" id="borrow-qty" name="borrow_qty" placeholder="" data-toggle="tooltip" data-placement="right" title="Jumlah barang yang akan dipinjam" onchange="changePrice()">
+						<label for="borrow-qty">Total Item</label>
+			    	</div>
+			    	<div>
+			    		Total Price : Rp. <b id="total-price">{{$post->price}}</b>
 			    	</div>
 			    	<!-- <div class="col-sm-3">
 			            <div class="input-group">
@@ -82,18 +60,30 @@
 			                </span>
 			            </div>
 			        </div> -->
-			        <div class="form-label-group" align="center">
+			        <div class="form-label-group" align="center" style="margin-top: 15px;">
 				    	<button class="btn btn-lg btn-primary btn-block btn-borrow" type="submit">Borrow Item</button>
 				    </div>
 				</form>
 			</div>
 		</div>
 	</div>
+</div>
 @endsection
 
 @section('extscript')
 <script type="text/javascript">
+	var base_price = $('#total-price').text();
+	$(document).ready(function(){
+	    $('[data-toggle="tooltip"]').tooltip();
+	    $('#total-price').text(base_price * $('#borrow-days').val());
+	});
 	
+	function changePrice(){
+		var price = base_price;
+		price = price * $('#borrow-qty').val() * $('#borrow-days').val();
+		$('#total-price').text(price);
+	}
+
 $('.btn-number').click(function(e){
     e.preventDefault();
     

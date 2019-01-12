@@ -4,89 +4,22 @@
     <title>LendIt - @yield('title')</title>
 
     <link rel="icon" href="{{ URL::asset('images/logo-lendit.png') }}">
-    {{-- <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/main.css') }}"> --}}
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/new-main.css') }}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     @yield('extcss')
 </head>
 <body>
     <div class="page">
-    	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-			<div class="logo">
-    			<img src="{{ URL::asset('images/logo-lendit.png') }}" style="height: 50px;">
-    		</div>
-      		<a class="navbar-brand" href="/">Lend It</a>
-	      	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarlendit" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
-	        	<span class="navbar-toggler-icon"></span>
-	      	</button>
-
-		    <div class="collapse navbar-collapse" id="navbarlendit">
-		        <form class="form-inline my-2 my-md-0">
-		          <input class="form-control" type="text" placeholder="Search">
-		        </form>
-
-		        <ul class="navbar-nav mr-auto">
-		          	<li class="nav-item active">
-		            	<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-		          	</li>
-	          		<li class="nav-item">
-	          			@if(Session::has('isLogin'))
-	            			<a class="nav-link" href="/profile/{{Session('name')}}">Profile</a>
-	            		@else
-	            			<a class="nav-link" href="/login">Profile</a>
-	          			@endif
-	          		</li>
-	          		<li class="nav-item dropdown">
-	            		<a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
-	            		<div class="dropdown-menu" aria-labelledby="dropdown03">
-	            			<a class="dropdown-item" href="/lend">Lend</a>
-              			<!-- <a class="dropdown-item" href="/borrow">Borrow</a> -->
-	           		 	</div>
-	          		</li>
-	          		<li class="nav-item">
-	            		<a class="nav-link" href="#">About Us</a>
-	          		</li>
-		          	<li class="nav-item dropdown">
-		            	<a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-		            	<div class="dropdown-menu" aria-labelledby="dropdown03">
-		              		<a class="dropdown-item" href="#">Action</a>
-		              		<a class="dropdown-item" href="#">Another action</a>
-		              		<a class="dropdown-item" href="#">Something else here</a>
-	            		</div>
-	          		</li>
-        		</ul>
-        		<ul class="nav navbar-nav navbar-right">
-        			@if(!Session::has('isLogin'))
-        			<li class="nav-item">
-	          			<a class="nav-link" href="/login">Login</a>
-	          		</li>
-	          		<li class="nav-item">
-	          			<a class="nav-link" href="/register">Register</a>
-	          		</li>
-	          		@else
-	          		<li>
-	          			@if(strlen(Session('name')) > 10)
-	          			<span class="navbar-brand mb-0">Hello, {{substr(Session('name'),0,strrpos(Session('name'), " "))}}</span>
-	          			@else
-	          			<span class="navbar-brand mb-0">Hello, {{Session('name')}}</span>
-	          			@endif
-	          		</li>
-	          		<li>
-	          			<a class="nav-link" href="/logout">Logout</a>
-	          		</li>
-	          		@endif
-        		</ul>
-	      	</div>
-	    </nav>
+    		@yield('navbar')
         <div class="page-content">
         	@yield('content')
         </div>
-        <footer class="footer">
-	      <div class="container">
-	        <span class="text-muted">&copy; Copyright by LendIt</span>
-	      </div>
+        <footer class="footer text-muted">
+        	&copy; Copyright by LendIt
 	    </footer>
     </div>
 

@@ -1,72 +1,15 @@
-@extends('layouts.master')
+@extends('layouts.nav')
 
 @section('title', 'Lend Item' )
 
 @section('extcss')
 	<link rel="stylesheet" type="text/css" href="/css/floating-labels.css">
-	<style type="text/css">
-		.btn-file {
-		    position: relative;
-		    overflow: hidden;
-		}
-		.btn-file input[type=file] {
-		    position: absolute;
-		    top: 0;
-		    right: 0;
-		    min-width: 100%;
-		    min-height: 100%;
-		    font-size: 100px;
-		    text-align: right;
-		    filter: alpha(opacity=0);
-		    opacity: 0;
-		    outline: none;
-		    background: white;
-		    cursor: inherit;
-		    display: block;
-		}
-
-		button[type=submit] {
-			width: 200px;
-			align-self: center;
-		}
-
-		#img-upload{
-		    width: 100%;
-		    height: auto;
-		}
-
-		.grid-container{
-			display: grid;
-			grid-template-columns: 50% auto auto;
-			padding: 10px;
-		}
-
-		.upload-image{
-			margin-top: 40px;
-		}
-
-		.detail-input{
-			width: 100%;
-		}
-
-		.btn-lend{
-			width: 50%; 
-			background-color: #343a40; 
-			font-size: 18px;
-		}
-
-		.delete-button{
-			padding: 30px;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="/css/form.css">
 @endsection
 
 @section('content')
-<div class="grid-container">
+<div class="grid-container container">
 	<div class="grid-item image-input">
-		@php
-			$link = '/images/'.$post->link;
-		@endphp
 		<form method="POST" action="/edit-post" enctype="multipart/form-data" class="form-signin">
 			{{csrf_field()}}
 		<div class="form-group upload-image">
@@ -74,13 +17,13 @@
 	        <div class="input-group">
 	            <span class="input-group-btn">
 	                <span class="btn btn-default btn-file">
-	                    Browse… <input type="file" id="imgInp" name="product_image" disabled>
+	                    Browse… <input type="file" id="imgInp" name="product_image">
 	                </span>
 	            </span>
-	            <input type="text" class="form-control" readonly>
+	            <input type="text" class="form-control" readonly value="{{$post->link}}">
 	        </div>
 	        <br>
-	        <img id='img-upload' src=""/>
+	        <img id='img-upload' src="/images/products/{{$post->link}}"/>
 	    </div>
 	</div>
 	<div class="grid-item detail-input">	
@@ -89,7 +32,7 @@
 		        <h1 class="h3 mb-3 font-weight-normal">Change your item description</h1>
 		        <p>
 		        	Edit your item descriptions.
-	        	</p>
+	        	</p>	
 	    	</div>
 
 		    <div class="form-label-group">
@@ -120,6 +63,14 @@
 		    <div class="form-label-group">
 					<input type="text" class="form-control" id="price" name="price" placeholder="Product Price" data-toggle="tooltip" data-placement="right" title="Harga peminjaman barang per hari" value="{{$post->price}}">
 					<label for="price">Product Price</label>
+		    </div>
+
+		    <div class="form-label-group">
+		        @if(isset($errors))
+		            @foreach($errors->all() as $error)
+		                {{ $error }} <br>
+		            @endforeach
+		        @endif
 		    </div>
 
 		    <div class="form-label-group" align="center">

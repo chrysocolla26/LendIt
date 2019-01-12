@@ -1,6 +1,6 @@
 @extends('layouts.nav')
 
-@section('title', 'Lend Item' )
+@section('title', 'Edit Profile' )
 
 @section('extcss')
 	<link rel="stylesheet" type="text/css" href="/css/floating-labels.css">
@@ -10,59 +10,54 @@
 @section('content')
 <div class="grid-container container">
 	<div class="grid-item image-input">	
-		<form method="POST" action="/lend-post" enctype="multipart/form-data" class="form-signin">
+		<form method="POST" action="/edit-profile" enctype="multipart/form-data" class="form-signin">
 			{{csrf_field()}}
 		<div class="form-group upload-image">
-	        <h4>Upload Product Image</h4>
+	        <h4>Upload Profile Picture</h4>
 	        <div class="input-group">
 	            <span class="input-group-btn">
 	                <span class="btn btn-default btn-file">
-	                    Browse… <input type="file" id="imgInp" name="product_image">
+	                    Browse… <input type="file" id="Picture" name="picture">
 	                </span>
 	            </span>
 	            <input type="text" class="form-control" readonly>
 	        </div>
 	        <br>
-	        <img id='img-upload'/>
+	        <img id='img-upload' src="/images/profiles/{{$user->picture}}" />
 	    </div>
 	</div>
 	<div class="grid-item detail-input">	
 	    	<div class="text-center mb-4">
 		    	<img class="mb-4" id="imageBackground" src="" alt="" width="144px" height="144px">
-		        <h1 class="h3 mb-3 font-weight-normal">Lend you item here</h1>
+		        <h1 class="h3 mb-3 font-weight-normal">Update Profile</h1>
 		        <p>
-		        	Fill your item descriptions.
+		        	Update your profile with your recent info.
 	        	</p>
 	    	</div>
 
 		    <div class="form-label-group">
-					<input type="text" class="form-control" id="product-name" name="product_name" placeholder="Product Name" value={{ old('product_name') }}>
-					<label for="product-name">Product Name</label>
+					<input type="text" class="form-control" id="Name" name="name" placeholder="Full Name" value={{ $user->name }}>
+					<label for="Name">Full Name</label>
 		    </div>
 
 		    <div class="form-label-group">
-					<input type="number" min="1" max="99" class="form-control" id="product-stock" name="product_stock" placeholder="Stock" data-toggle="tooltip" data-placement="right" title="Stock barang yang dimiliki" value={{ old('product_stock') }}>
-					<label for="product-stock">Product Stock</label>
+					<input type="text" class="form-control" id="Email" name="email" placeholder="Email Address" value={{ $user->email }}>
+					<label for="Email">Email Address</label>
 		    </div>
 
 		    <div class="form-label-group">
-				    <textarea class="form-control" rows="5" id="product-description" name="product_description" placeholder="Product Description" data-toggle="tooltip" data-placement="right" title="Deskripsi detail produk yang akan dipinjamkan"> {{ old('product_description') }}</textarea>
-				    <label for="product-description">Description</label>
+				    <textarea class="form-control" rows="5" id="Address" name="address" placeholder="Address" data-toggle="tooltip" data-placement="right">{{ $user->address }}</textarea>
+				    <label for="Address">Address</label>
 		    </div>
 
 		    <div class="form-label-group">
-					<input type="number" min="1" max="99" class="form-control" id="product-minimum" name="product_minimum" placeholder="Minimum" data-toggle="tooltip" data-placement="right" title="Minimum lama peminjaman barang (hari)" value={{ old('product_minimum') }}>
-					<label for="product-minimum">Minimum</label>
+					<input type="number" class="form-control" id="Phone" name="phone" placeholder="Phone Number" data-toggle="tooltip" data-placement="right" value={{ $user->phone }}>
+					<label for="Phone">Phone Number</label>
 		    </div>
 
 		    <div class="form-label-group">
-					<input type="number" min="1" max="99" class="form-control" id="product-maximum" name="product_maximum" placeholder="Maximum" data-toggle="tooltip" data-placement="right" title="Maximum lama peminjaman barang (hari)" value={{ old('product_maximum') }}>
-					<label for="product-maximum">Maximum</label>
-		    </div>
-
-		    <div class="form-label-group">
-					<input type="text" class="form-control" id="price" name="price" placeholder="Product Price" data-toggle="tooltip" data-placement="right" title="Harga peminjaman barang per hari" value={{ old('price') }}>
-					<label for="price">Product Price</label>
+					<input type="password" class="form-control" id="Password" name="password" placeholder="New Password" data-toggle="tooltip" data-placement="right" value="{{csrf_token()}}">
+					<label for="Password">Password</label>
 		    </div>
 
 		    <div class="form-label-group">
@@ -120,7 +115,7 @@
 		    }
 		}
 
-		$("#imgInp").change(function(){
+		$("#Picture").change(function(){
 		    readURL(this);
 		}); 	
 	});
