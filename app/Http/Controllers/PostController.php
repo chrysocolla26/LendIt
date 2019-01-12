@@ -12,7 +12,7 @@ class PostController extends Controller
 {
     public function home()
     {
-        $postNotification = Post::orderBy('created_at', 'DESC')->paginate(4);
+        $posts = Post::orderBy('created_at', 'DESC')->paginate(4);
         
         $postNotification = Post::where('user_id', '=', Session("id"))->get();
         $i = 0;
